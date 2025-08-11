@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abdul Aziz • AI Engineer Portfolio</title>
+  <meta name="description" content="Abdul Aziz — AI/ML & Software Engineer in Chicago. Graph RAG, MLOps, observability, and decision-support systems. Portfolio with standardized artifacts." />
+  <meta property="og:title" content="Abdul Aziz • AI Engineer Portfolio" />
+  <meta property="og:description" content="AI/ML engineer specializing in Graph RAG, MLOps, observability. Projects, artifacts, certifications, and contact." />
+  <meta property="og:type" content="website" />
   <style>
     :root{
       --bg:#0b1020;--panel:#101731;--muted:#91a0c3;--text:#e9eefc;--brand:#60a5fa;--ring:rgba(96,165,250,.35);
@@ -42,6 +46,7 @@
     .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
     .proj{background:linear-gradient(180deg,#101731,#0e142a);border:1px solid #202b52;border-radius:14px;overflow:hidden}
     .thumb{aspect-ratio:16/9;background:#0a1128;display:flex;align-items:center;justify-content:center;color:#8fb3ff;font-weight:700}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
     .pbody{padding:12px 14px}
     .pbody h3{margin:0 0 8px;font-size:17px}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -60,6 +65,11 @@
     .cert{background:#0e1734;border:1px solid #22305a;border-radius:12px;padding:12px}
 
     footer{padding:30px 12px;text-align:center;color:#9db2df}
+
+    /* Accessibility */
+    .proj[role="button"]{cursor:pointer}
+    .proj:focus-visible{outline:2px solid var(--brand);box-shadow:0 0 0 4px var(--ring)}
+    .close:focus-visible,.btn:focus-visible,.search:focus-visible,select:focus-visible{outline:2px solid var(--brand);box-shadow:0 0 0 4px var(--ring)}
   </style>
 </head>
 <body>
@@ -70,7 +80,7 @@
       <nav style="display:flex;gap:6px;flex-wrap:wrap">
         <a href="#about">About</a>
         <a href="#value">Value</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Artifacts</a>
         <a href="#certs">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -101,7 +111,7 @@
           <ul style="margin:8px 0 0 18px; padding:0; line-height:1.9">
             <li><a href="#about">Professional Bio</a></li>
             <li><a href="#value">Personal Value Proposition</a></li>
-            <li><a href="#projects">Projects & Artifacts</a></li>
+            <li><a href="#projects">Artifacts</a></li>
             <li><a href="#certs">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -122,14 +132,14 @@
         </section>
 
         <section id="projects" class="card section">
-          <h2>📁 Projects & Artifacts</h2>
+          <h2>📁 Artifacts</h2>
           <div class="controls">
-            <input id="q" class="search" placeholder="Search projects, tech…" />
-            <select id="sort">
+            <input id="q" class="search" placeholder="Search artifacts, tech…" aria-label="Search artifacts" />
+            <select id="sort" aria-label="Sort artifacts">
               <option value="recent">Sort: Most Recent</option>
               <option value="alpha">Sort: A → Z</option>
             </select>
-            <select id="filter">
+            <select id="filter" aria-label="Filter artifacts by type">
               <option value="all">All</option>
               <option value="ai">AI/ML</option>
               <option value="data">Data</option>
@@ -137,7 +147,8 @@
             </select>
           </div>
 
-          <div id="gallery" class="gallery"></div>
+          <div id="gallery" class="gallery" role="list"></div>
+          <div id="empty" style="display:none;color:#9db2df;margin-top:8px">No artifacts match your search. Try clearing filters.</div>
         </section>
 
         <section id="certs" class="card section">
@@ -161,56 +172,117 @@
   <footer>© 2025 Abdul Aziz</footer>
 
   <!-- Modal -->
-  <dialog id="modal">
+  <dialog id="modal" aria-labelledby="mTitle" aria-modal="true">
     <div class="mhead">
       <strong id="mTitle">Title</strong>
-      <button class="close" onclick="modal.close()">Close</button>
+      <button class="close" id="closeBtn">Close</button>
     </div>
     <div id="mBody" class="mbody"></div>
   </dialog>
 
   <script>
-    // ——— Project data from your doc ———
-    const projects = [
+    // Small helper: produce a simple SVG placeholder as a data URL
+    const placeholder = (text) => {
+      const svg = encodeURIComponent(`<?xml version='1.0' encoding='UTF-8'?>\n<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='675'>\n<defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#0b1020'/><stop offset='100%' stop-color='#0c1225'/></linearGradient></defs>\n<rect width='100%' height='100%' fill='url(#g)'/>\n<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#8fb3ff' font-family='Segoe UI, Roboto, Arial' font-size='46' font-weight='700'>${text}</text>\n</svg>`);
+      return `data:image/svg+xml;charset=UTF-8,${svg}`;
+    };
+
+    // ——— Standardized Artifact data ———
+    const artifacts = [
       {
-        title: "AI & ML Timeline – Visual Journey",
-        desc: "A timeline of AI/ML milestones designed for technical & non‑technical readers.",
+        id: 1,
+        title: "Artifact 1: AI & ML Timeline – A Visual Journey Through AI History",
         tag: ["tools"],
         date: "2025-07-01",
-        cover: "Timeline",
-        tech: ["ChatGPT","Canva"],
-        details: `<p><strong>Objective:</strong> Highlight pivotal milestones, breakthroughs, and trends.</p>
-                  <p><strong>Process:</strong> Curated content with ChatGPT; designed visuals in Canva.</p>
-                  <p><strong>Value:</strong> Communicates complex ideas clearly for stakeholders.</p>`
+        cover: placeholder("AI & ML Timeline"),
+        introduction: "A visually rich timeline showcasing the evolution of AI/ML for both technical and non‑technical audiences.",
+        description: "Key milestones from foundational algorithms to modern generative models, highlighting trends and context.",
+        objective: "Create a professional visualization that communicates the progression of AI/ML over decades.",
+        process: [
+          "Curated milestone list and themes",
+          "Refined copy and captions with ChatGPT",
+          "Designed cohesive visuals in Canva with consistent styling"
+        ],
+        tools: ["ChatGPT", "Canva"],
+        value: "Distills complex history into an engaging, presentation‑ready timeline for education and stakeholder buy‑in.",
+        unique: "Bridges technical detail and accessible storytelling with high‑impact design.",
+        relevance: "Great for onboarding, AI literacy sessions, and executive briefings.",
+        references: [
+          { label: "Russell & Norvig – Artificial Intelligence: A Modern Approach" },
+          { label: "Stanford AI timeline resources" }
+        ]
       },
       {
-        title: "AI Agent on Maestro.com",
-        desc: "Custom agent to showcase agentic workflow creation and decision‑making.",
+        id: 2,
+        title: "Artifact 2: AI Lab – Building an AI Agent on Maestro.com",
         tag: ["ai"],
         date: "2025-06-12",
-        cover: "Agent",
-        tech: ["Maestro.com","Prompt Eng."],
-        details: `<p><strong>Objective:</strong> Design & implement a configurable AI agent.</p>
-                  <p><strong>Process:</strong> Iterative prompt/workflow refinement; scenario testing.</p>
-                  <p><strong>Value:</strong> Demonstrates low‑code agent design & adaptability.</p>`
+        cover: placeholder("AI Agent on Maestro"),
+        introduction: "Hands‑on demonstration of AI agent creation using a low‑code platform to model decision‑making workflows.",
+        description: "A functional agent that executes task sequences and adapts to scenario changes via iterative prompt and workflow tuning.",
+        objective: "Design, implement, and evaluate a configurable AI agent capable of adaptive reasoning and workflow execution.",
+        process: [
+          "Selected Maestro.com for low‑code agent development",
+          "Configured workflows and parameters",
+          "Iteratively refined prompts and decision branches based on testing"
+        ],
+        tools: ["Maestro.com", "Prompt Engineering"],
+        value: "Demonstrates adaptability and rapid prototyping for decision automation in enterprise contexts.",
+        unique: "Aligns agent behaviors tightly with business outcomes while remaining low‑code.",
+        relevance: "Applicable to operations automation, assistants, and decision support across finance/healthcare/logistics.",
+        references: [
+          { label: "Maestro.com documentation" },
+          { label: "OpenAI prompt engineering guides" }
+        ]
       },
       {
-        title: "Data Challenge Scenarios – Reflection",
-        desc: "Hands‑on reasoning through missing values, outliers, and ethics.",
+        id: 3,
+        title: "Artifact 3: (Placeholder) — Coming Soon",
+        tag: ["ai", "tools"],
+        date: "2025-06-20",
+        cover: placeholder("Artifact 3"),
+        introduction: "Reserved slot for a forthcoming artifact (e.g., Graph RAG or Observability).",
+        description: "This entry follows the standardized format so new work can drop in seamlessly.",
+        objective: "Document impact, process, and value with metrics once available.",
+        process: ["TBD"],
+        tools: ["TBD"],
+        value: "Ensures consistency across artifacts.",
+        unique: "N/A",
+        relevance: "N/A",
+        references: []
+      },
+      {
+        id: 4,
+        title: "Artifact 4: Data Challenge Scenarios — Reflection (AIML‑500)",
         tag: ["data"],
         date: "2025-05-20",
-        cover: "Data",
-        tech: ["ChatGPT-4o"],
-        details: `<p>Course: AIML‑500 Machine Learning Fundamentals<br/>Assignment: 4.3 Data Challenge Scenarios</p>
-                  <ul><li>Always question patterns before fixes</li><li>Not all outliers/missing values need filling</li><li>Context & documentation matter</li></ul>`
+        cover: placeholder("Data Challenge Reflection"),
+        introduction: "Structured reflection on solving real‑world data issues as part of AIML‑500 Machine Learning Fundamentals.",
+        description: "Worked through missing values, outliers, and ethics using an interactive AI coach; emphasized context‑aware decisions.",
+        objective: "Develop critical thinking and technical strategies for responsible data preparation in ML.",
+        process: [
+          "Explored imputation strategies (median, predictive modeling, and when to avoid)",
+          "Handled outliers with domain‑aware reasoning",
+          "Evaluated impact via visualization/model performance; documented ethical considerations"
+        ],
+        tools: ["ChatGPT‑4o", "Python (data handling/plots)"] ,
+        value: "Integrates domain knowledge with statistical rigor for sensitive domains like finance/healthcare.",
+        unique: "Balances technical technique with ethical judgment.",
+        relevance: "Directly applicable to production data readiness and governance.",
+        references: [
+          { label: "AIML‑500 course materials" },
+          { label: "van Buuren — Flexible Imputation of Missing Data" }
+        ]
       }
     ];
 
     const gallery = document.getElementById('gallery');
+    const empty = document.getElementById('empty');
     const q = document.getElementById('q');
     const sortSel = document.getElementById('sort');
     const filterSel = document.getElementById('filter');
     const modal = document.getElementById('modal');
+    const closeBtn = document.getElementById('closeBtn');
     const mTitle = document.getElementById('mTitle');
     const mBody = document.getElementById('mBody');
 
@@ -220,33 +292,80 @@
     sortSel.addEventListener('change', ()=>{ state.sort=sortSel.value; render(); });
     filterSel.addEventListener('change', ()=>{ state.filter=filterSel.value; render(); });
 
+    // Accessibility: open with Enter/Space, restore focus on close
+    let lastFocused = null;
+    function openModal(p){
+      lastFocused = document.activeElement;
+      mTitle.textContent = p.title;
+      mBody.innerHTML = artifactHTML(p);
+      modal.showModal();
+      closeBtn.focus();
+    }
+    function closeModal(){
+      modal.close();
+      if (lastFocused) lastFocused.focus();
+    }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.open) closeModal(); });
+
     function matches(p){
-      const hay = (p.title+' '+p.desc+' '+(p.tech||[]).join(' ')).toLowerCase();
+      const hay = (
+        p.title+' '+p.description+' '+(p.tools||[]).join(' ')+' '+(p.tag||[]).join(' ')
+      ).toLowerCase();
       const byQ = !state.q || hay.includes(state.q);
-      const byF = state.filter==='all' || p.tag.includes(state.filter);
+      const byF = state.filter==='all' || (p.tag||[]).includes(state.filter);
       return byQ && byF;
     }
     function sortItems(a,b){
       if(state.sort==='alpha') return a.title.localeCompare(b.title);
       return new Date(b.date)-new Date(a.date);
     }
-    function card(p,i){
-      return `<article class="proj" data-idx="${i}">
-                <div class="thumb">${p.cover||'—'}</div>
-                <div class="pbody">
-                  <h3>${p.title}</h3>
-                  <p style="color:#b9c7e8;margin:0 0 8px">${p.desc}</p>
-                  <div class="tags">${(p.tech||[]).map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
-                </div>
-              </article>`;
+
+    function card(p){
+      const techTags = (p.tools||[]).map(t=>`<span class='tag'>${t}</span>`).join('');
+      return `
+        <article class="proj" role="button" tabindex="0" aria-label="Open ${p.title}">
+          <div class="thumb">${ p.cover ? `<img alt="${p.title} cover" src="${p.cover}">` : p.title }</div>
+          <div class="pbody">
+            <h3>${p.title}</h3>
+            <p style="color:#b9c7e8;margin:0 0 8px">${p.introduction||''}</p>
+            <div class="tags">${techTags}</div>
+          </div>
+        </article>`;
     }
-    function openModal(p){
-      mTitle.textContent = p.title; mBody.innerHTML = p.details || '<p>No further details.</p>'; modal.showModal();
+
+    function artifactHTML(p){
+      const list = (arr)=> (arr&&arr.length) ? `<ul>${arr.map(i=>`<li>${i}</li>`).join('')}</ul>` : '<p>—</p>';
+      const refs = (p.references&&p.references.length) ? `<ul>${p.references.map(r=>`<li>${r.url?`<a href='${r.url}' target='_blank' rel='noopener'>${r.label}</a>`:r.label}</li>`).join('')}</ul>` : '<p>—</p>';
+      return `
+        ${p.cover ? `<img src="${p.cover}" alt="${p.title} image" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px">` : ''}
+        <h3>Artifact Information</h3>
+        <p><strong>Artifact Title</strong><br>${p.title}</p>
+        <p><strong>Introduction</strong><br>${p.introduction||'—'}</p>
+        <p><strong>Description</strong><br>${p.description||'—'}</p>
+        <p><strong>Objective</strong><br>${p.objective||'—'}</p>
+        <p><strong>Process</strong>${list(p.process)}</p>
+        <p><strong>Tools and Tech used</strong>${list(p.tools)}</p>
+        <p><strong>Value Proposition of the Artifact</strong><br>${p.value||'—'}</p>
+        <p><strong>Unique value</strong><br>${p.unique||'—'}</p>
+        <p><strong>Relevance</strong><br>${p.relevance||'—'}</p>
+        <p><strong>References</strong>${refs}</p>
+      `;
     }
+
     function render(){
-      const items = projects.filter(matches).sort(sortItems);
-      gallery.innerHTML = items.map((p,i)=>card(p,i)).join('');
-      [...gallery.querySelectorAll('.proj')].forEach((el,idx)=> el.addEventListener('click',()=> openModal(items[idx])));
+      const items = artifacts.filter(matches).sort(sortItems);
+      gallery.innerHTML = items.map(p=>card(p)).join('');
+      empty.style.display = items.length ? 'none' : 'block';
+      // wire click + keyboard
+      [...gallery.querySelectorAll('.proj')].forEach((el,idx)=>{
+        const p = items[idx];
+        el.addEventListener('click',()=> openModal(p));
+        el.addEventListener('keydown',(e)=>{
+          if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(p); }
+        });
+      });
     }
     render();
   </script>
