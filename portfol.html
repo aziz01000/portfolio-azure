@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdul Aziz • AI Engineer Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b1020;--panel:#101731;--muted:#91a0c3;--text:#e9eefc;--brand:#60a5fa;--ring:rgba(96,165,250,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b1020,#0c1225);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:var(--brand);text-decoration:none}
+    /* Shell */
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
+    .nav{position:sticky;top:0;z-index:30;background:rgba(12,18,37,.7);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #1b2749}
+    .nav-inner{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 6px}
+    .nav a{padding:8px 10px;border-radius:10px}
+    .nav a:hover{background:#111a34}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .grid{display:grid;grid-template-columns: 280px 1fr;gap:18px}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* Sidebar */
+    .side{position:sticky;top:62px;align-self:start;display:flex;flex-direction:column;gap:14px}
+    .card{background:linear-gradient(180deg,#101731,#0e152b);border:1px solid #1a2446;border-radius:16px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+    .hero{display:flex;flex-direction:column;gap:8px}
+    .hero h1{font-size:26px;line-height:1.25;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+    .chip{font-size:12px;padding:6px 8px;border-radius:999px;border:1px solid #25325c;background:#0e1734;color:#bcd}
+
+    /* Main */
+    section{scroll-margin-top:80px}
+    h2{margin:0 0 10px;font-size:22px}
+    .section{padding:16px 18px;margin-bottom:16px}
+    .lead{color:#c8d3f0}
+
+    /* Projects Gallery */
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
+    .search,select{border:1px solid #22305a;background:#0e1734;color:var(--text);padding:10px 12px;border-radius:12px;outline:none}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .proj{background:linear-gradient(180deg,#101731,#0e142a);border:1px solid #202b52;border-radius:14px;overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:#0a1128;display:flex;align-items:center;justify-content:center;color:#8fb3ff;font-weight:700}
+    .pbody{padding:12px 14px}
+    .pbody h3{margin:0 0 8px;font-size:17px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:11px;padding:5px 7px;border:1px solid #26325e;border-radius:999px;background:#0f1836;color:#b8c4e3}
+    .btn{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--brand);color:#081126;font-weight:700}
+
+    /* Modal */
+    dialog{width:min(860px,92vw);border:none;padding:0;border-radius:16px;overflow:hidden;background:#0f152b;color:var(--text);box-shadow:0 20px 80px rgba(0,0,0,.6)}
+    dialog::backdrop{background:rgba(6,10,24,.7)}
+    .mhead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #22305a;background:#0d1426}
+    .mbody{padding:16px;max-height:70vh;overflow:auto}
+    .close{background:#0e1734;border:1px solid #2a3969;color:#cfe;cursor:pointer;border-radius:10px;padding:8px 10px}
+
+    /* Cert list */
+    .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+    .cert{background:#0e1734;border:1px solid #22305a;border-radius:12px;padding:12px}
+
+    footer{padding:30px 12px;text-align:center;color:#9db2df}
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">Abdul Aziz</div>
+      <nav style="display:flex;gap:6px;flex-wrap:wrap">
+        <a href="#about">About</a>
+        <a href="#value">Value</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:10px">
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside class="side">
+        <div class="card hero">
+          <h1>Welcome to My Digital Portfolio</h1>
+          <div class="meta">Chicago, IL • <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a> • (608) 473‑4869</div>
+          <div class="chips">
+            <span class="chip">AI Engineer</span>
+            <span class="chip">Software Dev</span>
+            <span class="chip">Graph RAG</span>
+            <span class="chip">MLOps</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn" href="#projects" style="background:#7dd3fc;color:#031326">View Work</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <strong>Quick Links</strong>
+          <ul style="margin:8px 0 0 18px; padding:0; line-height:1.9">
+            <li><a href="#about">Professional Bio</a></li>
+            <li><a href="#value">Personal Value Proposition</a></li>
+            <li><a href="#projects">Projects & Artifacts</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main style="display:flex;flex-direction:column;gap:16px">
+        <section id="about" class="card section">
+          <h2>👤 Professional Bio</h2>
+          <p class="lead">I’m Abdul Aziz — a Senior Software/AI Engineer at Northern Trust with an M.S. in AI (4.0 GPA) and a dual B.A. in Computer Science & Business Economics (Beloit College). I design and ship enterprise‑scale systems across AI/ML, Generative AI, data engineering, and graph analytics.</p>
+          <p>My work centers on <strong>scalable RAG systems</strong>, <strong>observability frameworks</strong>, and <strong>decision‑support solutions</strong> that hold up in high‑stakes environments like finance. I thrive at the intersection of data science, software craftsmanship, and business impact.</p>
+        </section>
+
+        <section id="value" class="card section">
+          <h2>💼 Personal Value Proposition</h2>
+          <p>I turn ambiguous business needs into <strong>explainable, reliable, and secure AI systems</strong>. I lean on knowledge graphs, solid data engineering, and MLOps to build pipelines that teams can trust and auditors can understand.</p>
+        </section>
+
+        <section id="projects" class="card section">
+          <h2>📁 Projects & Artifacts</h2>
+          <div class="controls">
+            <input id="q" class="search" placeholder="Search projects, tech…" />
+            <select id="sort">
+              <option value="recent">Sort: Most Recent</option>
+              <option value="alpha">Sort: A → Z</option>
+            </select>
+            <select id="filter">
+              <option value="all">All</option>
+              <option value="ai">AI/ML</option>
+              <option value="data">Data</option>
+              <option value="tools">Tools</option>
+            </select>
+          </div>
+
+          <div id="gallery" class="gallery"></div>
+        </section>
+
+        <section id="certs" class="card section">
+          <h2>📜 Certifications</h2>
+          <div class="certs">
+            <div class="cert">Microsoft Certified: Azure Data Scientist Associate</div>
+            <div class="cert">Microsoft Certified: Azure Generative AI Engineer Associate</div>
+            <div class="cert">Neo4j Certified: Graph Data Science</div>
+            <div class="cert">Microsoft Azure Fundamentals (AZ‑900)</div>
+          </div>
+        </section>
+
+        <section id="contact" class="card section">
+          <h2>🔗 Contact</h2>
+          <p>📍 Chicago, IL<br />📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br />📞 (608) 473‑4869<br />🔗 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer>© 2025 Abdul Aziz</footer>
+
+  <!-- Modal -->
+  <dialog id="modal">
+    <div class="mhead">
+      <strong id="mTitle">Title</strong>
+      <button class="close" onclick="modal.close()">Close</button>
+    </div>
+    <div id="mBody" class="mbody"></div>
+  </dialog>
+
+  <script>
+    // ——— Project data from your doc ———
+    const projects = [
+      {
+        title: "AI & ML Timeline – Visual Journey",
+        desc: "A timeline of AI/ML milestones designed for technical & non‑technical readers.",
+        tag: ["tools"],
+        date: "2025-07-01",
+        cover: "Timeline",
+        tech: ["ChatGPT","Canva"],
+        details: `<p><strong>Objective:</strong> Highlight pivotal milestones, breakthroughs, and trends.</p>
+                  <p><strong>Process:</strong> Curated content with ChatGPT; designed visuals in Canva.</p>
+                  <p><strong>Value:</strong> Communicates complex ideas clearly for stakeholders.</p>`
+      },
+      {
+        title: "AI Agent on Maestro.com",
+        desc: "Custom agent to showcase agentic workflow creation and decision‑making.",
+        tag: ["ai"],
+        date: "2025-06-12",
+        cover: "Agent",
+        tech: ["Maestro.com","Prompt Eng."],
+        details: `<p><strong>Objective:</strong> Design & implement a configurable AI agent.</p>
+                  <p><strong>Process:</strong> Iterative prompt/workflow refinement; scenario testing.</p>
+                  <p><strong>Value:</strong> Demonstrates low‑code agent design & adaptability.</p>`
+      },
+      {
+        title: "Data Challenge Scenarios – Reflection",
+        desc: "Hands‑on reasoning through missing values, outliers, and ethics.",
+        tag: ["data"],
+        date: "2025-05-20",
+        cover: "Data",
+        tech: ["ChatGPT-4o"],
+        details: `<p>Course: AIML‑500 Machine Learning Fundamentals<br/>Assignment: 4.3 Data Challenge Scenarios</p>
+                  <ul><li>Always question patterns before fixes</li><li>Not all outliers/missing values need filling</li><li>Context & documentation matter</li></ul>`
+      }
+    ];
+
+    const gallery = document.getElementById('gallery');
+    const q = document.getElementById('q');
+    const sortSel = document.getElementById('sort');
+    const filterSel = document.getElementById('filter');
+    const modal = document.getElementById('modal');
+    const mTitle = document.getElementById('mTitle');
+    const mBody = document.getElementById('mBody');
+
+    let state = { q:'', sort:'recent', filter:'all' };
+
+    q.addEventListener('input', ()=>{ state.q=q.value.toLowerCase(); render(); });
+    sortSel.addEventListener('change', ()=>{ state.sort=sortSel.value; render(); });
+    filterSel.addEventListener('change', ()=>{ state.filter=filterSel.value; render(); });
+
+    function matches(p){
+      const hay = (p.title+' '+p.desc+' '+(p.tech||[]).join(' ')).toLowerCase();
+      const byQ = !state.q || hay.includes(state.q);
+      const byF = state.filter==='all' || p.tag.includes(state.filter);
+      return byQ && byF;
+    }
+    function sortItems(a,b){
+      if(state.sort==='alpha') return a.title.localeCompare(b.title);
+      return new Date(b.date)-new Date(a.date);
+    }
+    function card(p,i){
+      return `<article class="proj" data-idx="${i}">
+                <div class="thumb">${p.cover||'—'}</div>
+                <div class="pbody">
+                  <h3>${p.title}</h3>
+                  <p style="color:#b9c7e8;margin:0 0 8px">${p.desc}</p>
+                  <div class="tags">${(p.tech||[]).map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
+                </div>
+              </article>`;
+    }
+    function openModal(p){
+      mTitle.textContent = p.title; mBody.innerHTML = p.details || '<p>No further details.</p>'; modal.showModal();
+    }
+    function render(){
+      const items = projects.filter(matches).sort(sortItems);
+      gallery.innerHTML = items.map((p,i)=>card(p,i)).join('');
+      [...gallery.querySelectorAll('.proj')].forEach((el,idx)=> el.addEventListener('click',()=> openModal(items[idx])));
+    }
+    render();
+  </script>
+</body>
+</html>
