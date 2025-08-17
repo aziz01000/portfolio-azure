@@ -122,8 +122,8 @@
       <main style="display:flex;flex-direction:column;gap:16px">
         <section id="about" class="card section">
           <h2>👤 Professional Bio</h2>
-          <p class="lead">I’m Abdul Aziz — a Software/AI Engineer currently doing an M.S. in AI and hold a dual B.S. in Computer Science & Business Economics (Beloit College). I design and ship enterprise‑scale systems across AI/ML, Generative AI, data engineering, and graph analytics.</p>
-          <p>My work centers on <strong>scalable RAG systems</strong>, <strong>observability frameworks</strong>, and <strong>decision‑support solutions</strong> that hold up in high‑stakes environments like finance. I thrive at the intersection of data science, software craftsmanship, and business impact.</p>
+          <p class="lead">I’m Abdul Aziz — a Software/AI Engineer currently doing an M.S. in AI and hold a dual B.S. in Computer Science & Business Economics (Beloit College). I design and ship enterprise-scale systems across AI/ML, Generative AI, data engineering, and graph analytics.</p>
+          <p>My work centers on <strong>scalable RAG systems</strong>, <strong>observability frameworks</strong>, and <strong>decision-support solutions</strong> that hold up in high-stakes environments like finance. I thrive at the intersection of data science, software craftsmanship, and business impact.</p>
         </section>
 
         <section id="value" class="card section">
@@ -144,6 +144,8 @@
               <option value="ai">AI/ML</option>
               <option value="data">Data</option>
               <option value="tools">Tools</option>
+              <option value="personal">Personal</option>
+              <option value="reflection">Reflection</option>
             </select>
           </div>
 
@@ -157,13 +159,13 @@
             <div class="cert">Microsoft Certified: Azure Data Scientist Associate</div>
             <div class="cert">Microsoft Certified: Azure Generative AI Engineer Associate</div>
             <div class="cert">Neo4j Certified: Graph Data Science</div>
-            <div class="cert">Microsoft Azure Fundamentals (AZ‑900)</div>
+            <div class="cert">Microsoft Azure Fundamentals (AZ-900)</div>
           </div>
         </section>
 
         <section id="contact" class="card section">
           <h2>🔗 Contact</h2>
-          <p>📍 Chicago, IL<br />📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br /> <br />🔗 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+          <p>📍 Chicago, IL<br />📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br /><br />🔗 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
         </section>
       </main>
     </div>
@@ -175,7 +177,7 @@
   <dialog id="modal" aria-labelledby="mTitle" aria-modal="true">
     <div class="mhead">
       <strong id="mTitle">Title</strong>
-      <button class="close" id="closeBtn">Close</button>
+      <button class="close" id="closeBtn" type="button">Close</button>
     </div>
     <div id="mBody" class="mbody"></div>
   </dialog>
@@ -188,53 +190,55 @@
     };
 
     // ——— Standardized Artifact data ———
+    // Use unified keys: cover (image URL), file (downloadable asset), link {label,url}, placeholder (string)
     const artifacts = [
-    {
-    id: 1,
-    title: "Artifact 1: AI & ML Timeline – A Visual Journey Through AI History",
-    tag: ["tools"],
-    date: "2025-07-01",
-    coverImage: "/timeline.png",
-    coverFile: "/ai_ml_timeline.pdf",
-    placeholder: "AI & ML Timeline",
-    introduction: "A visually rich timeline showcasing the evolution of AI/ML for both technical and non-technical audiences.",
-    description: "Key milestones from foundational algorithms to modern generative models, highlighting trends and context.",
-    objective: "Create a professional visualization that communicates the progression of AI/ML over decades.",
-    process: [
-      "Curated milestone list and themes",
-      "Refined copy and captions with ChatGPT",
-      "Designed cohesive visuals in Canva with consistent styling"
-    ],
-    tools: ["ChatGPT", "Canva"],
-    value: "Distills complex history into an engaging, presentation-ready timeline for education and stakeholder buy-in.",
-    unique: "Bridges technical detail and accessible storytelling with high-impact design.",
-    relevance: "Great for onboarding, AI literacy sessions, and executive briefings.",
-    references: [
-      { label: "Russell & Norvig – Artificial Intelligence: A Modern Approach" },
-      { label: "Stanford AI timeline resources" }
-    ],
-    link: {
-      label: "View Artifact 1: AI & ML Timeline",
-      url: "https://docs.google.com/document/d/13p4uVI5zHaLwamXg-LAqIiinMNrb7BGJ-5z-fl_LRXU/edit?usp=sharing"
-    }
-  },
+      {
+        id: 1,
+        title: "Artifact 1: AI & ML Timeline – A Visual Journey Through AI History",
+        tag: ["tools"],
+        date: "2025-07-01",
+        cover: "/timeline.png",            // If missing, UI falls back to placeholder(title)
+        file: "/ai_ml_timeline.pdf",       // Optional downloadable file
+        placeholder: "AI & ML Timeline",
+        introduction: "A visually rich timeline showcasing the evolution of AI/ML for both technical and non-technical audiences.",
+        description: "Key milestones from foundational algorithms to modern generative models, highlighting trends and context.",
+        objective: "Create a professional visualization that communicates the progression of AI/ML over decades.",
+        process: [
+          "Curated milestone list and themes",
+          "Refined copy and captions with ChatGPT",
+          "Designed cohesive visuals in Canva with consistent styling"
+        ],
+        tools: ["ChatGPT", "Canva"],
+        value: "Distills complex history into an engaging, presentation-ready timeline for education and stakeholder buy-in.",
+        unique: "Bridges technical detail and accessible storytelling with high-impact design.",
+        relevance: "Great for onboarding, AI literacy sessions, and executive briefings.",
+        references: [
+          { label: "Russell & Norvig – Artificial Intelligence: A Modern Approach" },
+          { label: "Stanford AI timeline resources", url: "https://ai.stanford.edu/timeline/" }
+        ],
+        link: {
+          label: "View Artifact 1: AI & ML Timeline",
+          url: "https://docs.google.com/document/d/13p4uVI5zHaLwamXg-LAqIiinMNrb7BGJ-5z-fl_LRXU/edit?usp=sharing"
+        }
+      },
       {
         id: 2,
         title: "Artifact 2: AI Lab – Building an AI Agent on Maestro.com",
         tag: ["ai"],
         date: "2025-06-12",
-        cover: placeholder("AI Agent on Maestro"),
-        introduction: "Hands‑on demonstration of AI agent creation using a low‑code platform to model decision‑making workflows.",
+        // cover: "/path/to/image.png", // optional
+        placeholder: "AI Agent on Maestro",
+        introduction: "Hands-on demonstration of AI agent creation using a low-code platform to model decision-making workflows.",
         description: "A functional agent that executes task sequences and adapts to scenario changes via iterative prompt and workflow tuning.",
         objective: "Design, implement, and evaluate a configurable AI agent capable of adaptive reasoning and workflow execution.",
         process: [
-          "Selected Maestro.com for low‑code agent development",
+          "Selected Maestro.com for low-code agent development",
           "Configured workflows and parameters",
           "Iteratively refined prompts and decision branches based on testing"
         ],
         tools: ["Maestro.com", "Prompt Engineering"],
         value: "Demonstrates adaptability and rapid prototyping for decision automation in enterprise contexts.",
-        unique: "Aligns agent behaviors tightly with business outcomes while remaining low‑code.",
+        unique: "Aligns agent behaviors tightly with business outcomes while remaining low-code.",
         relevance: "Applicable to operations automation, assistants, and decision support across finance/healthcare/logistics.",
         references: [
           { label: "Maestro.com documentation" },
@@ -244,95 +248,88 @@
       {
         id: 3,
         title: "Artifact 3: AI-Augmented Study Companion: Podcast & Visual Mapping for Deep Learning Mastery",
-        tag: ["ai", "tools"],
+        tag: ["ai","tools"],
         date: "2025-08-10",
         cover: "/deep.png",
-        introduction: "Integrated AI into my study workflow for a deep learning quiz through podcast simulation and concept mapping.",
+        placeholder: "Deep Learning Study Companion",
+        introduction: "Integrated AI into study workflow via podcast simulation and concept mapping.",
         description: "Merged auditory, textual, and visual learning to reinforce neural network concepts through an AI-generated podcast and a concept map taxonomy.",
-        objective: "Translate technical content into relatable conversation, understand neural networks as systems, reinforce learning through active listening and mapping, and showcase AI as tutor and co-creator.",
+        objective: "Translate technical content into relatable conversation and reinforce learning through active listening and mapping.",
         process: [
-          "Used NotebookLLM to simulate a fictional, accurate podcast episode discussing CNNs, RNNs, LSTMs, GRUs, and their applications.",
-          "Interacted with AI assistants for clarification on key terms like vanishing gradients and activation functions.",
-          "Created a concept map categorizing neural network architectures including supervised/unsupervised branches and subtypes.",
-          "Validated content against course slides, PDFs, and a timeline document."
+          "Used NotebookLLM to simulate a fictional, accurate podcast",
+          "Interacted with AI assistants for clarification",
+          "Created a concept map of architectures and subtypes",
+          "Validated content against course materials"
         ],
-        tools: ["NotebookLLM", "AI Chat Assistants", "Course Slides/PDFs"],
-        value: "Turns passive study into an interactive, multimodal experience that deepens conceptual understanding and improves retention.",
-        unique: "Combines AI-generated podcast dialogues with custom concept maps for a unique learning approach.",
-        relevance: "Supports deep learning coursework and strengthens skills in technical communication, instructional design, and AI-enhanced learning.",
+        tools: ["NotebookLLM","AI Chat Assistants","Course Slides/PDFs"],
+        value: "Turns passive study into interactive, multimodal learning.",
+        unique: "Combines AI-generated dialogues with custom concept maps.",
+        relevance: "Supports deep learning coursework and technical communication.",
         references: [
           { label: "AIML-500 Course Materials" },
-          { label: "Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press." },
-          { label: "Relevant lecture PDFs and timelines provided in course" }
+          { label: "Goodfellow, Bengio & Courville (2016). Deep Learning. MIT Press." }
         ]
-},
-{
+      },
+      {
         id: 4,
         title: "Artifact 4: Data Challenge Scenarios with AI Coach — Turning Data Obstacles into Opportunities",
-        tag: ["ai", "data"],
+        tag: ["ai","data"],
         date: "2025-08-10",
         cover: "/schhol.png",
-        introduction: "Engaged with a pre-trained AI chatbot (SchoolAI Data Challenge Scenarios Coach) to explore real-world machine learning data issues, gaining insights into processing, cleaning, privacy, and security challenges.",
-        description: "This artifact captures a hands-on, interactive learning session with an AI coach designed to present practical ML data challenges. Through guided scenarios and immediate feedback, I practiced applying theory to real-world problems.",
-        objective: "Enhance problem-solving skills in data preprocessing, cleaning, and understanding privacy/security constraints, while demonstrating the use of AI as an educational partner.",
+        placeholder: "Data Challenge Scenarios",
+        introduction: "Interactive engagement with an AI coach to explore practical ML data issues.",
+        description: "AI-guided scenarios covering data quality, bias, scalability, and privacy with immediate feedback.",
+        objective: "Strengthen problem-solving skills in preprocessing, cleaning, privacy/security.",
         process: [
-          "Accessed the Data Challenge Scenarios Coach via a class-specific link.",
-          "Participated in three AI-guided scenarios covering topics such as data quality, bias, scalability, and privacy concerns.",
-          "Explained reasoning for decisions in each scenario, receiving immediate AI feedback.",
-          "Saved unique session URL to continue engagement and preserve learning evidence.",
-          "Reflected on strategies for turning data obstacles into innovation opportunities."
+          "Accessed class-specific coach link",
+          "Completed three guided scenarios",
+          "Saved session URL and reflections"
         ],
-        tools: ["SchoolAI Data Challenge Scenarios Coach", "Course Rubric", "Class Lecture Materials"],
-        value: "Demonstrates ability to apply ML data handling strategies in interactive, problem-based learning environments.",
-        unique: "Uses an AI chatbot as both a tutor and evaluator, simulating real-world decision-making in ML contexts.",
-        relevance: "Directly aligns with professional practice in AI/ML, where addressing data issues is critical to system reliability, ethics, and scalability.",
+        tools: ["SchoolAI Data Challenge Coach","Course Rubric","Lecture Materials"],
+        value: "Demonstrates applied strategies for real-world data challenges.",
+        unique: "Uses AI as tutor and evaluator for problem-based learning.",
+        relevance: "Directly aligned with reliable, ethical ML practice.",
         references: [
           { label: "AIML-500 Course Materials" },
           { label: "SchoolAI Data Challenge Scenarios Coach" }
         ]
-},
-
-
-{
+      },
+      {
         id: 5,
         title: "Artifact 5: Resilience, Grit, and Grace — Lessons from Faith and AI Iteration",
-        tag: ["personal", "reflection"],
+        tag: ["personal","reflection"],
         date: "2025-08-10",
-        cover: placeholder("Resilience & AI Iteration"),
-        introduction: "A deeply personal reflection drawing parallels between iterative learning in AI models and my own spiritual growth through resilience, grit, and grace, inspired by James 1:2-4. This piece represents my own experiences and insights, with AI used only to help organize structure and enhance clarity.",
-        description: "This artifact explores how the cycles of refinement in AI systems mirror my personal journey of growth through challenges. Engaging with biblical principles and my own lived experiences, I reflect on how resilience, grit, and grace have shaped my leadership, personal development, and faith journey.",
-        objective: "Demonstrate full ownership of the reflection process by connecting personal experiences to biblical principles of persistence, applying these lessons to both personal and professional challenges, and relating them to iterative learning in AI.",
+        // cover: "", // optional
+        placeholder: "Resilience & AI Iteration",
+        introduction: "A personal reflection connecting spiritual growth with iterative AI learning.",
+        description: "How refinement cycles in AI mirror personal perseverance (James 1:2-4).",
+        objective: "Show authentic leadership insights and parallels to AI iteration.",
         process: [
-          "Reviewed James 1:2-4 and reflected on its message about perseverance in trials.",
-          "Recounted a specific leadership challenge where resilience was essential, detailing the obstacles, my response, and lessons learned.",
-          "Shared a personal story requiring significant grit to achieve a goal, explaining the role of grace from others and from God.",
-          "Drew parallels between these real-life experiences and AI model refinement cycles, emphasizing iterative improvement.",
-          "Wrote the reflection in my own words, using AI tools only for clarity and structural improvements without altering personal meaning."
+          "Reviewed James 1:2-4",
+          "Recounted leadership challenge",
+          "Connected to AI model refinement cycles"
         ],
-        prompt: "Reflect on a time when your leadership was tested through a challenging situation. How did you demonstrate resilience, and what lessons did you learn that strengthened your future leadership abilities? Share a personal experience where you had to exhibit significant grit to achieve a goal. How did grace (either received from others or from God) play a part in this journey? How can you apply these lessons to iterative learning, both in personal and professional contexts?",
-        tools: ["Bible (NIV, James 1:2-4)", "Personal Reflection Notes", "Course Rubric", "AI editor for clarity"],
-        value: "Showcases the integration of faith-based values with leadership and professional growth, demonstrating resilience and adaptability as key qualities.",
-        unique: "Combines authentic personal testimony with a professional analogy to AI iteration, creating a multidimensional perspective on perseverance.",
-        relevance: "Applies to leadership, personal development, and AI-related professional contexts, where resilience, grit, and grace are essential for long-term success.",
+        tools: ["Bible (NIV)","Personal Notes","AI editor for clarity"],
+        value: "Integrates faith-based values with professional growth.",
+        unique: "Personal testimony + professional analogy.",
+        relevance: "Leadership, personal development, AI practice.",
         references: [
-          { label: "Bible, New International Version, James 1:2-4" },
+          { label: "Bible, NIV, James 1:2-4" },
           { label: "Course Workshop 4.4 Materials" }
         ]
-}
-
-
-
+      }
     ];
 
-    const gallery = document.getElementById('gallery');
-    const empty = document.getElementById('empty');
-    const q = document.getElementById('q');
-    const sortSel = document.getElementById('sort');
+    // —— DOM refs
+    const gallery   = document.getElementById('gallery');
+    const empty     = document.getElementById('empty');
+    const q         = document.getElementById('q');
+    const sortSel   = document.getElementById('sort');
     const filterSel = document.getElementById('filter');
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('closeBtn');
-    const mTitle = document.getElementById('mTitle');
-    const mBody = document.getElementById('mBody');
+    const modal     = document.getElementById('modal');
+    const closeBtn  = document.getElementById('closeBtn');
+    const mTitle    = document.getElementById('mTitle');
+    const mBody     = document.getElementById('mBody');
 
     let state = { q:'', sort:'recent', filter:'all' };
 
@@ -359,7 +356,7 @@
 
     function matches(p){
       const hay = (
-        p.title+' '+p.description+' '+(p.tools||[]).join(' ')+' '+(p.tag||[]).join(' ')
+        (p.title||'')+' '+(p.introduction||'')+' '+(p.description||'')+' '+(p.objective||'')+' '+(p.value||'')+' '+(p.tools||[]).join(' ')+' '+(p.tag||[]).join(' ')
       ).toLowerCase();
       const byQ = !state.q || hay.includes(state.q);
       const byF = state.filter==='all' || (p.tag||[]).includes(state.filter);
@@ -372,9 +369,10 @@
 
     function card(p){
       const techTags = (p.tools||[]).map(t=>`<span class='tag'>${t}</span>`).join('');
+      const coverSrc = p.cover || placeholder(p.placeholder || p.title || 'Artifact');
       return `
         <article class="proj" role="button" tabindex="0" aria-label="Open ${p.title}">
-          <div class="thumb">${ p.cover ? `<img alt="${p.title} cover" src="${p.cover}">` : p.title }</div>
+          <div class="thumb"><img alt="${p.title} cover" src="${coverSrc}"></div>
           <div class="pbody">
             <h3>${p.title}</h3>
             <p style="color:#b9c7e8;margin:0 0 8px">${p.introduction||''}</p>
@@ -385,9 +383,22 @@
 
     function artifactHTML(p){
       const list = (arr)=> (arr&&arr.length) ? `<ul>${arr.map(i=>`<li>${i}</li>`).join('')}</ul>` : '<p>—</p>';
-      const refs = (p.references&&p.references.length) ? `<ul>${p.references.map(r=>`<li>${r.url?`<a href='${r.url}' target='_blank' rel='noopener'>${r.label}</a>`:r.label}</li>`).join('')}</ul>` : '<p>—</p>';
+      const refs = (p.references&&p.references.length)
+        ? `<ul>${p.references.map(r=>`<li>${r.url?`<a href='${r.url}' target='_blank' rel='noopener'>${r.label||r.url}</a>`:r.label}</li>`).join('')}</ul>`
+        : '<p>—</p>';
+
+      const linkBlock = (p.link && p.link.url)
+        ? `<p><strong>Artifact Link</strong><br><a href="${p.link.url}" target="_blank" rel="noopener">${p.link.label || p.link.url}</a></p>`
+        : '';
+
+      const fileBlock = p.file
+        ? `<p><a class="btn" href="${p.file}" target="_blank" rel="noopener">Open / Download</a></p>`
+        : '';
+
+      const coverSrc = p.cover || placeholder(p.placeholder || p.title || 'Artifact');
+
       return `
-        ${p.cover ? `<img src="${p.cover}" alt="${p.title} image" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px">` : ''}
+        ${coverSrc ? `<img src="${coverSrc}" alt="${p.title} image" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px">` : ''}
         <h3>Artifact Information</h3>
         <p><strong>Artifact Title</strong><br>${p.title}</p>
         <p><strong>Introduction</strong><br>${p.introduction||'—'}</p>
@@ -399,6 +410,8 @@
         <p><strong>Unique value</strong><br>${p.unique||'—'}</p>
         <p><strong>Relevance</strong><br>${p.relevance||'—'}</p>
         <p><strong>References</strong>${refs}</p>
+        ${linkBlock}
+        ${fileBlock}
       `;
     }
 
