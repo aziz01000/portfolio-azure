@@ -4,41 +4,120 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abdul Aziz • AI/ML Engineer Portfolio</title>
-  <meta name="description" content="Abdul Aziz — AI/ML & Software Engineer in Chicago. Expertise in GenAI, RAG systems, MLOps, and graph data science." />
+  <meta name="description" content="Abdul Aziz — AI/ML Engineer specializing in Generative AI, RAG systems, and MLOps. Building enterprise-ready AI solutions with measurable business impact." />
   <meta property="og:title" content="Abdul Aziz • AI/ML Engineer Portfolio" />
-  <meta property="og:description" content="Enterprise AI/ML engineer specializing in GenAI, RAG, and MLOps with proven impact in finance and data-driven decision systems." />
+  <meta property="og:description" content="Senior AI/ML Engineer delivering scalable GenAI pipelines, enterprise RAG systems, and MLOps workflows for Fortune 500 companies." />
   <meta property="og:type" content="website" />
   <style>
-    :root{
-      --bg:#0b1020;--panel:#101731;--muted:#91a0c3;--text:#e9eefc;--brand:#60a5fa;--ring:rgba(96,165,250,.35);
+    :root {
+      --bg: #0b1020;
+      --panel: #101731;
+      --muted: #91a0c3;
+      --text: #f1f5ff;
+      --brand: #60a5fa;
+      --highlight: #7dd3fc;
+      --ring: rgba(96,165,250,.35);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,#0b1020,#0c1225);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    a{color:var(--brand);text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px}
-    .nav{position:sticky;top:0;z-index:30;background:rgba(12,18,37,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #1b2749}
-    .nav-inner{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 6px}
-    .nav a{padding:8px 10px;border-radius:10px;font-weight:500}
-    .nav a:hover{background:#111a34}
-    .brand{font-weight:700;letter-spacing:.2px;font-size:18px}
-    .grid{display:grid;grid-template-columns: 280px 1fr;gap:18px}
-    @media (max-width:980px){.grid{grid-template-columns:1fr}}
-    .side{position:sticky;top:62px;align-self:start;display:flex;flex-direction:column;gap:14px}
-    .card{background:linear-gradient(180deg,#101731,#0e152b);border:1px solid #1a2446;border-radius:16px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
-    .hero h1{font-size:28px;line-height:1.25;margin:0;font-weight:700}
-    .hero p{font-size:14px;color:var(--muted);margin:4px 0 0}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .chip{font-size:12px;padding:6px 8px;border-radius:999px;border:1px solid #25325c;background:#0e1734;color:#bcd}
-    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:var(--brand);color:#081126;font-weight:700;transition:background 0.2s}
-    .btn:hover{background:#7dd3fc}
-    h2{margin:0 0 10px;font-size:22px}
-    .section{padding:16px 18px;margin-bottom:16px}
-    .lead{color:#c8d3f0}
-    footer{padding:30px 12px;text-align:center;color:#9db2df;font-size:14px}
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html, body {
+      background: linear-gradient(180deg,#0b1020,#0c1225);
+      color: var(--text);
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { color: var(--highlight); }
+    /* Layout */
+    .wrap { max-width: 1150px; margin: 0 auto; padding: 20px; }
+    .nav {
+      position: sticky; top:0; z-index:50;
+      background: rgba(12,18,37,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1b2749;
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 6px;
+    }
+    .brand {
+      font-size: 20px; font-weight: 700; letter-spacing: .3px;
+    }
+    .nav a {
+      padding: 8px 14px;
+      font-weight: 500;
+      transition: background .2s;
+      border-radius: 8px;
+    }
+    .nav a:hover { background: #111a34; }
+    .grid { display:grid; grid-template-columns:280px 1fr; gap:20px; }
+    @media(max-width:980px){ .grid { grid-template-columns:1fr; } }
+    /* Cards */
+    .card {
+      background: linear-gradient(180deg,#101731,#0e152b);
+      border: 1px solid #1a2446;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+    /* Hero */
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .chips {
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
+    }
+    .chip {
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:20px;
+      border:1px solid #25325c;
+      background:#0e1734;
+      color:#bcd;
+    }
+    .btn {
+      display:inline-block;
+      padding:10px 16px;
+      margin-top:12px;
+      border-radius:10px;
+      font-weight:600;
+      background: var(--brand);
+      color:#081126;
+      transition: background .2s;
+    }
+    .btn:hover { background: var(--highlight); }
+    /* Sections */
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .section p, .section li {
+      font-size: 15px;
+      color: #d8e2f8;
+    }
+    ul { padding-left:18px; }
+    footer {
+      padding: 30px 12px;
+      text-align: center;
+      color: #9db2df;
+      font-size: 14px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <!-- Top Nav -->
+  <!-- Navigation -->
   <div class="nav">
     <div class="wrap nav-inner">
       <div class="brand">Abdul Aziz</div>
@@ -53,51 +132,40 @@
     </div>
   </div>
 
+  <!-- Content -->
   <div class="wrap" style="margin-top:10px">
     <div class="grid">
       <!-- Sidebar -->
       <aside class="side">
         <div class="card hero">
-          <h1>Building Trustworthy AI Systems</h1>
-          <p>Chicago, IL • <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a></p>
+          <h1>Enterprise AI/ML Engineer</h1>
+          <p>Designing scalable, explainable, and trustworthy AI systems.</p>
           <div class="chips">
-            <span class="chip">AI/ML Engineering</span>
-            <span class="chip">Generative AI</span>
+            <span class="chip">GenAI</span>
+            <span class="chip">RAG Systems</span>
             <span class="chip">MLOps</span>
-            <span class="chip">Graph Data Science</span>
+            <span class="chip">Graph Analytics</span>
           </div>
-          <div style="display:flex;gap:10px;margin-top:10px">
+          <div style="display:flex;gap:10px;margin-top:12px">
             <a class="btn" href="#contact">Hire Me</a>
-            <a class="btn" href="#projects" style="background:#7dd3fc;color:#031326">See My Work</a>
+            <a class="btn" href="/mnt/data/Abdul.Aziz_Resume (6).pdf" target="_blank">Download Resume</a>
           </div>
-        </div>
-
-        <div class="card">
-          <strong>Quick Links</strong>
-          <ul style="margin:8px 0 0 18px; padding:0; line-height:1.9">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Artifacts</a></li>
-            <li><a href="#certs">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
         </div>
       </aside>
 
       <!-- Main -->
-      <main style="display:flex;flex-direction:column;gap:16px">
+      <main style="display:flex;flex-direction:column;gap:20px">
         <section id="about" class="card section">
           <h2>👤 About Me</h2>
-          <p class="lead">Senior AI/ML Engineer at Northern Trust with 4+ years of experience building enterprise-grade AI pipelines, decision-support systems, and scalable data platforms.</p>
-          <p>I specialize in <strong>RAG systems, multi-agent GenAI pipelines, and graph data science</strong>, delivering explainable AI solutions that drive business outcomes in high-stakes environments like finance.</p>
+          <p>I'm Abdul Aziz, a Senior AI/ML Engineer at Northern Trust. With 4+ years of experience, I design and deploy enterprise-grade solutions, from multi-agent GenAI pipelines to large-scale RAG systems and real-time observability frameworks.</p>
+          <p>My mission is to bridge <strong>cutting-edge AI innovation</strong> with <strong>reliable, explainable systems</strong> that deliver measurable business impact.</p>
         </section>
 
         <section id="skills" class="card section">
           <h2>🛠 Core Skills</h2>
-          <p><strong>AI/ML:</strong> TensorFlow, PyTorch, HuggingFace, DSPy, LangChain, LlamaIndex</p>
-          <p><strong>Data & Cloud:</strong> Azure, AWS, Databricks, Neo4j, Spark, MLflow, AKS</p>
-          <p><strong>MLOps & Automation:</strong> Argo, GitHub Actions, Terraform, Docker, Kubernetes</p>
+          <p><strong>AI/ML & NLP:</strong> PyTorch, TensorFlow, HuggingFace, DSPy, LangChain, LlamaIndex</p>
+          <p><strong>Cloud & Data:</strong> Azure, AWS, Databricks, Spark, Neo4j, MLflow, AKS</p>
+          <p><strong>MLOps & Automation:</strong> Argo, GitHub Actions, Docker, Kubernetes, Terraform</p>
           <p><strong>Programming:</strong> Python, SQL, R, Bash, Java</p>
         </section>
 
@@ -105,16 +173,19 @@
           <h2>💼 Experience Highlights</h2>
           <ul>
             <li><strong>Senior Analyst, Software/AI Engineer — Northern Trust</strong>  
-              Built <strong>production RAG and GenAI pipelines</strong>, improving accuracy by 30% and supporting over 1M API calls/month.</li>
-            <li>Designed <strong>LLMOps pipelines with Azure & Argo</strong>, ensuring compliance and scalability.</li>
-            <li>Implemented <strong>real-time observability with Arize Phoenix</strong>, reducing incident resolution times by 35%.</li>
+              - Built RAG & GenAI pipelines improving accuracy by 30% and scaling to 1M+ API calls/month.  
+              - Designed compliant LLMOps pipelines with Azure & Argo for enterprise workloads.  
+              - Enabled real-time observability with Arize Phoenix, reducing response cycles by 35%.</li>
+            <li><strong>Associate Software Engineer — Northern Trust</strong>  
+              - Delivered GPT-powered automation for reporting, boosting analyst productivity by 25%.  
+              - Migrated legacy systems to Databricks and Spark for scalable analytics.  
+              - Built graph-based recommendation engine, improving client acquisition efficiency by 15%.</li>
           </ul>
         </section>
 
         <section id="projects" class="card section">
           <h2>📁 Featured Artifacts</h2>
-          <p>Explore my curated projects and learning artifacts in AI, data engineering, and leadership below.</p>
-          <p><a class="btn" href="#gallery">View Gallery</a></p>
+          <p>Explore curated artifacts that showcase my technical expertise, research, and applied innovation in AI/ML and data engineering.</p>
         </section>
 
         <section id="certs" class="card section">
@@ -131,12 +202,15 @@
           <h2>🔗 Contact</h2>
           <p>📍 Chicago, IL<br>
              📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br>
-             🔗 <a href="https://www.linkedin.com/in/aziz16034" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+             🔗 <a href="https://www.linkedin.com/in/aziz16034" target="_blank">LinkedIn Profile</a></p>
         </section>
       </main>
     </div>
   </div>
 
-  <footer>© 2025 Abdul Aziz • Built with clean code and coffee ☕</footer>
+  <!-- Footer -->
+  <footer>
+    © 2025 Abdul Aziz • Professional AI/ML Engineer Portfolio
+  </footer>
 </body>
 </html>
