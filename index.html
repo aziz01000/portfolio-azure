@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abdul Aziz • AI Engineer Portfolio</title>
-  <meta name="description" content="Abdul Aziz — AI/ML & Software Engineer in Chicago. Graph RAG, MLOps, observability, and decision-support systems. Portfolio with standardized artifacts." />
-  <meta property="og:title" content="Abdul Aziz • AI Engineer Portfolio" />
-  <meta property="og:description" content="AI/ML engineer specializing in Graph RAG, MLOps, observability. Projects, artifacts, certifications, and contact." />
+  <title>Abdul Aziz • AI/ML Engineer Portfolio</title>
+  <meta name="description" content="Abdul Aziz — AI/ML & Software Engineer in Chicago. Expertise in GenAI, RAG systems, MLOps, and graph data science." />
+  <meta property="og:title" content="Abdul Aziz • AI/ML Engineer Portfolio" />
+  <meta property="og:description" content="Enterprise AI/ML engineer specializing in GenAI, RAG, and MLOps with proven impact in finance and data-driven decision systems." />
   <meta property="og:type" content="website" />
   <style>
     :root{
@@ -15,61 +15,26 @@
     *{box-sizing:border-box}
     html,body{margin:0;background:linear-gradient(180deg,#0b1020,#0c1225);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
     a{color:var(--brand);text-decoration:none}
-    /* Shell */
     .wrap{max-width:1100px;margin:0 auto;padding:20px}
-    .nav{position:sticky;top:0;z-index:30;background:rgba(12,18,37,.7);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #1b2749}
+    .nav{position:sticky;top:0;z-index:30;background:rgba(12,18,37,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #1b2749}
     .nav-inner{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 6px}
-    .nav a{padding:8px 10px;border-radius:10px}
+    .nav a{padding:8px 10px;border-radius:10px;font-weight:500}
     .nav a:hover{background:#111a34}
-    .brand{font-weight:700;letter-spacing:.2px}
+    .brand{font-weight:700;letter-spacing:.2px;font-size:18px}
     .grid{display:grid;grid-template-columns: 280px 1fr;gap:18px}
     @media (max-width:980px){.grid{grid-template-columns:1fr}}
-
-    /* Sidebar */
     .side{position:sticky;top:62px;align-self:start;display:flex;flex-direction:column;gap:14px}
     .card{background:linear-gradient(180deg,#101731,#0e152b);border:1px solid #1a2446;border-radius:16px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
-    .hero{display:flex;flex-direction:column;gap:8px}
-    .hero h1{font-size:26px;line-height:1.25;margin:0}
-    .meta{color:var(--muted);font-size:14px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+    .hero h1{font-size:28px;line-height:1.25;margin:0;font-weight:700}
+    .hero p{font-size:14px;color:var(--muted);margin:4px 0 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
     .chip{font-size:12px;padding:6px 8px;border-radius:999px;border:1px solid #25325c;background:#0e1734;color:#bcd}
-
-    /* Main */
-    section{scroll-margin-top:80px}
+    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:var(--brand);color:#081126;font-weight:700;transition:background 0.2s}
+    .btn:hover{background:#7dd3fc}
     h2{margin:0 0 10px;font-size:22px}
     .section{padding:16px 18px;margin-bottom:16px}
     .lead{color:#c8d3f0}
-
-    /* Projects Gallery */
-    .controls{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
-    .search,select{border:1px solid #22305a;background:#0e1734;color:var(--text);padding:10px 12px;border-radius:12px;outline:none}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-    .proj{background:linear-gradient(180deg,#101731,#0e142a);border:1px solid #202b52;border-radius:14px;overflow:hidden}
-    .thumb{aspect-ratio:16/9;background:#0a1128;display:flex;align-items:center;justify-content:center;color:#8fb3ff;font-weight:700}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .pbody{padding:12px 14px}
-    .pbody h3{margin:0 0 8px;font-size:17px}
-    .tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tag{font-size:11px;padding:5px 7px;border:1px solid #26325e;border-radius:999px;background:#0f1836;color:#b8c4e3}
-    .btn{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--brand);color:#081126;font-weight:700}
-
-    /* Modal */
-    dialog{width:min(860px,92vw);border:none;padding:0;border-radius:16px;overflow:hidden;background:#0f152b;color:var(--text);box-shadow:0 20px 80px rgba(0,0,0,.6)}
-    dialog::backdrop{background:rgba(6,10,24,.7)}
-    .mhead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #22305a;background:#0d1426}
-    .mbody{padding:16px;max-height:70vh;overflow:auto}
-    .close{background:#0e1734;border:1px solid #2a3969;color:#cfe;cursor:pointer;border-radius:10px;padding:8px 10px}
-
-    /* Cert list */
-    .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-    .cert{background:#0e1734;border:1px solid #22305a;border-radius:12px;padding:12px}
-
-    footer{padding:30px 12px;text-align:center;color:#9db2df}
-
-    /* Accessibility */
-    .proj[role="button"]{cursor:pointer}
-    .proj:focus-visible{outline:2px solid var(--brand);box-shadow:0 0 0 4px var(--ring)}
-    .close:focus-visible,.btn:focus-visible,.search:focus-visible,select:focus-visible{outline:2px solid var(--brand);box-shadow:0 0 0 4px var(--ring)}
+    footer{padding:30px 12px;text-align:center;color:#9db2df;font-size:14px}
   </style>
 </head>
 <body>
@@ -77,9 +42,10 @@
   <div class="nav">
     <div class="wrap nav-inner">
       <div class="brand">Abdul Aziz</div>
-      <nav style="display:flex;gap:6px;flex-wrap:wrap">
+      <nav>
         <a href="#about">About</a>
-        <a href="#value">Value</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Artifacts</a>
         <a href="#certs">Certifications</a>
         <a href="#contact">Contact</a>
@@ -92,25 +58,26 @@
       <!-- Sidebar -->
       <aside class="side">
         <div class="card hero">
-          <h1>Welcome to My Digital Portfolio</h1>
-          <div class="meta">Chicago, IL • <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a></div>
+          <h1>Building Trustworthy AI Systems</h1>
+          <p>Chicago, IL • <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a></p>
           <div class="chips">
-            <span class="chip">AI Engineer</span>
-            <span class="chip">Software Dev</span>
-            <span class="chip">Graph RAG</span>
+            <span class="chip">AI/ML Engineering</span>
+            <span class="chip">Generative AI</span>
             <span class="chip">MLOps</span>
+            <span class="chip">Graph Data Science</span>
           </div>
           <div style="display:flex;gap:10px;margin-top:10px">
-            <a class="btn" href="#contact">Contact</a>
-            <a class="btn" href="#projects" style="background:#7dd3fc;color:#031326">View Work</a>
+            <a class="btn" href="#contact">Hire Me</a>
+            <a class="btn" href="#projects" style="background:#7dd3fc;color:#031326">See My Work</a>
           </div>
         </div>
 
         <div class="card">
           <strong>Quick Links</strong>
           <ul style="margin:8px 0 0 18px; padding:0; line-height:1.9">
-            <li><a href="#about">Professional Bio</a></li>
-            <li><a href="#value">Personal Value Proposition</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Artifacts</a></li>
             <li><a href="#certs">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -118,336 +85,58 @@
         </div>
       </aside>
 
-      <!-- Main content -->
+      <!-- Main -->
       <main style="display:flex;flex-direction:column;gap:16px">
         <section id="about" class="card section">
-          <h2>👤 Professional Bio</h2>
-          <p class="lead">I’m Abdul Aziz — a Software/AI Engineer currently doing an M.S. in AI and hold a dual B.S. in Computer Science & Business Economics (Beloit College). I design and ship enterprise-scale systems across AI/ML, Generative AI, data engineering, and graph analytics.</p>
-          <p>My work centers on <strong>scalable RAG systems</strong>, <strong>observability frameworks</strong>, and <strong>decision-support solutions</strong> that hold up in high-stakes environments like finance. I thrive at the intersection of data science, software craftsmanship, and business impact.</p>
+          <h2>👤 About Me</h2>
+          <p class="lead">Senior AI/ML Engineer at Northern Trust with 4+ years of experience building enterprise-grade AI pipelines, decision-support systems, and scalable data platforms.</p>
+          <p>I specialize in <strong>RAG systems, multi-agent GenAI pipelines, and graph data science</strong>, delivering explainable AI solutions that drive business outcomes in high-stakes environments like finance.</p>
         </section>
 
-        <section id="value" class="card section">
-          <h2>💼 Personal Value Proposition</h2>
-          <p>I turn ambiguous business needs into <strong>explainable, reliable, and secure AI systems</strong>. I lean on knowledge graphs, solid data engineering, and MLOps to build pipelines that teams can trust and auditors can understand.</p>
+        <section id="skills" class="card section">
+          <h2>🛠 Core Skills</h2>
+          <p><strong>AI/ML:</strong> TensorFlow, PyTorch, HuggingFace, DSPy, LangChain, LlamaIndex</p>
+          <p><strong>Data & Cloud:</strong> Azure, AWS, Databricks, Neo4j, Spark, MLflow, AKS</p>
+          <p><strong>MLOps & Automation:</strong> Argo, GitHub Actions, Terraform, Docker, Kubernetes</p>
+          <p><strong>Programming:</strong> Python, SQL, R, Bash, Java</p>
+        </section>
+
+        <section id="experience" class="card section">
+          <h2>💼 Experience Highlights</h2>
+          <ul>
+            <li><strong>Senior Analyst, Software/AI Engineer — Northern Trust</strong>  
+              Built <strong>production RAG and GenAI pipelines</strong>, improving accuracy by 30% and supporting over 1M API calls/month.</li>
+            <li>Designed <strong>LLMOps pipelines with Azure & Argo</strong>, ensuring compliance and scalability.</li>
+            <li>Implemented <strong>real-time observability with Arize Phoenix</strong>, reducing incident resolution times by 35%.</li>
+          </ul>
         </section>
 
         <section id="projects" class="card section">
-          <h2>📁 Artifacts</h2>
-          <div class="controls">
-            <input id="q" class="search" placeholder="Search artifacts, tech…" aria-label="Search artifacts" />
-            <select id="sort" aria-label="Sort artifacts">
-              <option value="recent">Sort: Most Recent</option>
-              <option value="alpha">Sort: A → Z</option>
-            </select>
-            <select id="filter" aria-label="Filter artifacts by type">
-              <option value="all">All</option>
-              <option value="ai">AI/ML</option>
-              <option value="data">Data</option>
-              <option value="tools">Tools</option>
-              <option value="personal">Personal</option>
-              <option value="reflection">Reflection</option>
-            </select>
-          </div>
-
-          <div id="gallery" class="gallery" role="list"></div>
-          <div id="empty" style="display:none;color:#9db2df;margin-top:8px">No artifacts match your search. Try clearing filters.</div>
+          <h2>📁 Featured Artifacts</h2>
+          <p>Explore my curated projects and learning artifacts in AI, data engineering, and leadership below.</p>
+          <p><a class="btn" href="#gallery">View Gallery</a></p>
         </section>
 
         <section id="certs" class="card section">
           <h2>📜 Certifications</h2>
-          <div class="certs">
-            <div class="cert">Microsoft Certified: Azure Data Scientist Associate</div>
-            <div class="cert">Microsoft Certified: Azure Generative AI Engineer Associate</div>
-            <div class="cert">Neo4j Certified: Graph Data Science</div>
-            <div class="cert">Microsoft Azure Fundamentals (AZ-900)</div>
-          </div>
+          <ul>
+            <li>Azure Generative AI Engineer Associate</li>
+            <li>Azure Data Scientist Associate</li>
+            <li>Neo4j Certified: Graph Data Science</li>
+            <li>Azure Fundamentals (AZ-900)</li>
+          </ul>
         </section>
 
         <section id="contact" class="card section">
           <h2>🔗 Contact</h2>
-          <p>📍 Chicago, IL<br />📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br /><br />🔗 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+          <p>📍 Chicago, IL<br>
+             📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br>
+             🔗 <a href="https://www.linkedin.com/in/aziz16034" target="_blank" rel="noopener">LinkedIn Profile</a></p>
         </section>
       </main>
     </div>
   </div>
 
-  <footer>© 2025 Abdul Aziz</footer>
-
-  <!-- Modal -->
-  <dialog id="modal" aria-labelledby="mTitle" aria-modal="true">
-    <div class="mhead">
-      <strong id="mTitle">Title</strong>
-      <button class="close" id="closeBtn" type="button">Close</button>
-    </div>
-    <div id="mBody" class="mbody"></div>
-  </dialog>
-
-  <script>
-    // Small helper: produce a simple SVG placeholder as a data URL
-    const placeholder = (text) => {
-      const svg = encodeURIComponent(`<?xml version='1.0' encoding='UTF-8'?>\n<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='675'>\n<defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#0b1020'/><stop offset='100%' stop-color='#0c1225'/></linearGradient></defs>\n<rect width='100%' height='100%' fill='url(#g)'/>\n<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#8fb3ff' font-family='Segoe UI, Roboto, Arial' font-size='46' font-weight='700'>${text}</text>\n</svg>`);
-      return `data:image/svg+xml;charset=UTF-8,${svg}`;
-    };
-
-    // ——— Standardized Artifact data ———
-    // Use unified keys: cover (image URL), file (downloadable asset), link {label,url}, placeholder (string)
-    const artifacts = [
-      {
-        id: 1,
-        title: "Artifact 1: AI & ML Timeline – A Visual Journey Through AI History",
-        tag: ["tools"],
-        date: "2025-07-01",
-        cover: "/timeline.png",            // If missing, UI falls back to placeholder(title)
-        placeholder: "AI & ML Timeline",
-        introduction: "A visually rich timeline showcasing the evolution of AI/ML for both technical and non-technical audiences.",
-        description: "Key milestones from foundational algorithms to modern generative models, highlighting trends and context.",
-        objective: "Create a professional visualization that communicates the progression of AI/ML over decades.",
-        process: [
-          "Curated milestone list and themes",
-          "Refined copy and captions with ChatGPT",
-          "Designed cohesive visuals in Canva with consistent styling"
-        ],
-        tools: ["ChatGPT", "Canva"],
-        value: "Distills complex history into an engaging, presentation-ready timeline for education and stakeholder buy-in.",
-        unique: "Bridges technical detail and accessible storytelling with high-impact design.",
-        relevance: "Great for onboarding, AI literacy sessions, and executive briefings.",
-        references: [
-          { label: "Russell & Norvig – Artificial Intelligence: A Modern Approach" },
-          { label: "Stanford AI timeline resources", url: "https://ai.stanford.edu/timeline/" }
-        ],
-        link: {
-          label: "View Artifact 1: AI & ML Timeline",
-          url: "https://docs.google.com/document/d/13p4uVI5zHaLwamXg-LAqIiinMNrb7BGJ-5z-fl_LRXU/edit?usp=sharing"
-        }
-      },
-      {
-  id: 2,
-  title: "Artifact 2: Machine Learning Training Methods — Interactive Learning with Visuals",
-  tag: ["ai","tools"],
-  date: "2025-08-15",
-  placeholder: "ML Training Methods",
-  introduction: "This artifact captures my interactive learning experience with the Machine Learning Training Methods Coach, an AI chatbot designed to guide and collaborate in exploring machine learning training concepts.",
-  description: "The activity was inquiry-driven, meaning I asked and answered questions with the chatbot to reinforce understanding of supervised learning, unsupervised learning, reinforcement learning, algorithms, and the importance of iteration.",
-  objective: "Deepen conceptual mastery of ML training methods through inquiry-based learning with an AI guide.",
-  process: [
-    "Engaged in dialogue with the chatbot on supervised, unsupervised, and reinforcement learning.",
-    "Received probing questions and instant feedback to test and refine understanding.",
-    "Captured diagrams and screenshots (placeholders included) to visualize learning.",
-    "Reflected on how iteration and algorithms underpin effective ML training."
-  ],
-  tools: ["Machine Learning Training Methods Coach","AI Chatbot","Visual Diagrams"],
-  value: "Demonstrates how inquiry-based, AI-guided learning reinforces understanding of foundational ML training approaches.",
-  unique: "Combines conversational AI with visual placeholders to simulate an interactive study artifact.",
-  relevance: "Supports both academic and professional growth in ML by emphasizing core training methods and iterative thinking.",
-  references: [
-    { label: "Supervised Learning — Labeled data and predictive modeling" },
-    { label: "Unsupervised Learning — Pattern discovery without labels" },
-    { label: "Reinforcement Learning — Rewards, penalties, and exploration vs exploitation" }
-  ],
-  link: {
-    label: "View Artifact 2: ML Training Methods Artifact",
-    url: "https://docs.google.com/document/d/1LSFZfdYP0M0KwY3eogo-1kCTaKoYUPwr9QsDte_AqTs/edit?usp=sharing"
-  }
-},
-
-      {
-        id: 3,
-        title: "Artifact 3: AI-Augmented Study Companion: Podcast & Visual Mapping for Deep Learning Mastery",
-        tag: ["ai","tools"],
-        date: "2025-08-10",
-        placeholder: "Deep Learning Study Companion",
-        introduction: "Integrated AI into study workflow via podcast simulation and concept mapping.",
-        description: "Merged auditory, textual, and visual learning to reinforce neural network concepts through an AI-generated podcast and a concept map taxonomy.",
-        objective: "Translate technical content into relatable conversation and reinforce learning through active listening and mapping.",
-        process: [
-          "Used NotebookLLM to simulate a fictional, accurate podcast",
-          "Interacted with AI assistants for clarification",
-          "Created a concept map of architectures and subtypes",
-          "Validated content against course materials"
-        ],
-        tools: ["NotebookLLM","AI Chat Assistants","Course Slides/PDFs"],
-        value: "Turns passive study into interactive, multimodal learning.",
-        unique: "Combines AI-generated dialogues with custom concept maps.",
-        relevance: "Supports deep learning coursework and technical communication.",
-        references: [
-          { label: "AIML-500 Course Materials" },
-          { label: "Goodfellow, Bengio & Courville (2016). Deep Learning. MIT Press." }
-        ],
-
-        link: {
-          label: "View Artifact 3: AI-Augmented Study Companion",
-          url: "https://docs.google.com/document/d/1Zk24ktgGTWE5tiacbM0UYC5uN8FZKn1XCW5Qb3MqsbY/edit?usp=sharing"
-        }
-
-        
-      },
-      {
-        id: 4,
-        title: "Artifact 4: Data Challenge Scenarios with AI Coach — Turning Data Obstacles into Opportunities",
-        tag: ["ai","data"],
-        date: "2025-08-10",
-        cover: "/schhol.png",
-        placeholder: "Data Challenge Scenarios",
-        introduction: "Interactive engagement with an AI coach to explore practical ML data issues.",
-        description: "AI-guided scenarios covering data quality, bias, scalability, and privacy with immediate feedback.",
-        objective: "Strengthen problem-solving skills in preprocessing, cleaning, privacy/security.",
-        process: [
-          "Accessed class-specific coach link",
-          "Completed three guided scenarios",
-          "Saved session URL and reflections"
-        ],
-        tools: ["SchoolAI Data Challenge Coach","Course Rubric","Lecture Materials"],
-        value: "Demonstrates applied strategies for real-world data challenges.",
-        unique: "Uses AI as tutor and evaluator for problem-based learning.",
-        relevance: "Directly aligned with reliable, ethical ML practice.",
-        references: [
-          { label: "AIML-500 Course Materials" },
-          { label: "SchoolAI Data Challenge Scenarios Coach" }
-        ],
-
-        link: {
-          label: "View Artifact 4: Data Challenge Scenarios",
-          url: "https://docs.google.com/document/d/1F0yKUoUs7KLP80DUneM8udIHce60lvxp6gUoYcZKEYw/edit?usp=sharing"
-        }
-      },
-      {
-    id: 5,
-    title: "Artifact 5: Transformation and Leadership – A Reflective Artifact with AI Process Transparency",
-    tag: ["reflection", "leadership", "faith"],
-    date: "2025-08-17",
-    placeholder: "Transformation and Leadership",
-    introduction: "Transformation is a central theme in the Christian faith. Throughout the Bible, we see people’s lives dramatically altered by God’s presence and guidance.",
-    description: "This artifact explores biblical inspiration, personal transformation, and the way transformation impacts leadership.",
-    objective: "Reflect on transformation in faith and leadership, supported by a transparent AI-assisted writing process.",
-    process: [
-      "Read assignment requirements and identified key outcomes",
-      "Planned structure using biblical and personal examples",
-      "Used ChatGPT to refine clarity and maintain a professional tone",
-      "Personalized with authentic experiences and reflections"
-    ],
-    tools: ["ChatGPT", "Personal Reflection"],
-    value: "Demonstrates integration of biblical principles, personal growth, and leadership insights in a reflective format.",
-    unique: "Highlights AI transparency while keeping personal ownership of the reflection.",
-    relevance: "Useful for faith-based leadership contexts, academic reflection, and professional growth portfolios.",
-    references: [
-      { label: "The Bible – Story of Paul (Acts 9)" }
-    ],
-    link: {
-      label: "View Artifact 5: Transformation and Leadership",
-      url: "https://docs.google.com/document/d/1XKXYw5GrdcCzLJfk7wGg6Qw4gs2MW78k97wTc7FgKK0/edit?usp=sharing"
-    }
-  }
-];
-
-    // —— DOM refs
-    const gallery   = document.getElementById('gallery');
-    const empty     = document.getElementById('empty');
-    const q         = document.getElementById('q');
-    const sortSel   = document.getElementById('sort');
-    const filterSel = document.getElementById('filter');
-    const modal     = document.getElementById('modal');
-    const closeBtn  = document.getElementById('closeBtn');
-    const mTitle    = document.getElementById('mTitle');
-    const mBody     = document.getElementById('mBody');
-
-    let state = { q:'', sort:'recent', filter:'all' };
-
-    q.addEventListener('input', ()=>{ state.q=q.value.toLowerCase(); render(); });
-    sortSel.addEventListener('change', ()=>{ state.sort=sortSel.value; render(); });
-    filterSel.addEventListener('change', ()=>{ state.filter=filterSel.value; render(); });
-
-    // Accessibility: open with Enter/Space, restore focus on close
-    let lastFocused = null;
-    function openModal(p){
-      lastFocused = document.activeElement;
-      mTitle.textContent = p.title;
-      mBody.innerHTML = artifactHTML(p);
-      modal.showModal();
-      closeBtn.focus();
-    }
-    function closeModal(){
-      modal.close();
-      if (lastFocused) lastFocused.focus();
-    }
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.open) closeModal(); });
-
-    function matches(p){
-      const hay = (
-        (p.title||'')+' '+(p.introduction||'')+' '+(p.description||'')+' '+(p.objective||'')+' '+(p.value||'')+' '+(p.tools||[]).join(' ')+' '+(p.tag||[]).join(' ')
-      ).toLowerCase();
-      const byQ = !state.q || hay.includes(state.q);
-      const byF = state.filter==='all' || (p.tag||[]).includes(state.filter);
-      return byQ && byF;
-    }
-    function sortItems(a,b){
-      if(state.sort==='alpha') return a.title.localeCompare(b.title);
-      return new Date(b.date)-new Date(a.date);
-    }
-
-    function card(p){
-      const techTags = (p.tools||[]).map(t=>`<span class='tag'>${t}</span>`).join('');
-      const coverSrc = p.cover || placeholder(p.placeholder || p.title || 'Artifact');
-      return `
-        <article class="proj" role="button" tabindex="0" aria-label="Open ${p.title}">
-          <div class="thumb"><img alt="${p.title} cover" src="${coverSrc}"></div>
-          <div class="pbody">
-            <h3>${p.title}</h3>
-            <p style="color:#b9c7e8;margin:0 0 8px">${p.introduction||''}</p>
-            <div class="tags">${techTags}</div>
-          </div>
-        </article>`;
-    }
-
-    function artifactHTML(p){
-      const list = (arr)=> (arr&&arr.length) ? `<ul>${arr.map(i=>`<li>${i}</li>`).join('')}</ul>` : '<p>—</p>';
-      const refs = (p.references&&p.references.length)
-        ? `<ul>${p.references.map(r=>`<li>${r.url?`<a href='${r.url}' target='_blank' rel='noopener'>${r.label||r.url}</a>`:r.label}</li>`).join('')}</ul>`
-        : '<p>—</p>';
-
-      const linkBlock = (p.link && p.link.url)
-        ? `<p><strong>Artifact Link</strong><br><a href="${p.link.url}" target="_blank" rel="noopener">${p.link.label || p.link.url}</a></p>`
-        : '';
-
-      const fileBlock = p.file
-        ? `<p><a class="btn" href="${p.file}" target="_blank" rel="noopener">Open / Download</a></p>`
-        : '';
-
-      const coverSrc = p.cover || placeholder(p.placeholder || p.title || 'Artifact');
-
-      return `
-        ${coverSrc ? `<img src="${coverSrc}" alt="${p.title} image" style="width:100%;height:auto;border-radius:10px;margin-bottom:10px">` : ''}
-        <h3>Artifact Information</h3>
-        <p><strong>Artifact Title</strong><br>${p.title}</p>
-        <p><strong>Introduction</strong><br>${p.introduction||'—'}</p>
-        <p><strong>Description</strong><br>${p.description||'—'}</p>
-        <p><strong>Objective</strong><br>${p.objective||'—'}</p>
-        <p><strong>Process</strong>${list(p.process)}</p>
-        <p><strong>Tools and Tech used</strong>${list(p.tools)}</p>
-        <p><strong>Value Proposition of the Artifact</strong><br>${p.value||'—'}</p>
-        <p><strong>Unique value</strong><br>${p.unique||'—'}</p>
-        <p><strong>Relevance</strong><br>${p.relevance||'—'}</p>
-        <p><strong>References</strong>${refs}</p>
-        ${linkBlock}
-        ${fileBlock}
-      `;
-    }
-
-    function render(){
-      const items = artifacts.filter(matches).sort(sortItems);
-      gallery.innerHTML = items.map(p=>card(p)).join('');
-      empty.style.display = items.length ? 'none' : 'block';
-      // wire click + keyboard
-      [...gallery.querySelectorAll('.proj')].forEach((el,idx)=>{
-        const p = items[idx];
-        el.addEventListener('click',()=> openModal(p));
-        el.addEventListener('keydown',(e)=>{
-          if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(p); }
-        });
-      });
-    }
-    render();
-  </script>
+  <footer>© 2025 Abdul Aziz • Built with clean code and coffee ☕</footer>
 </body>
 </html>
