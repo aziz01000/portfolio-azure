@@ -4,74 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Search Artifact • Abdul Aziz Portfolio</title>
-  <style>
-    :root {
-      --bg: #0b1020;
-      --panel: #101731;
-      --text: #f1f5ff;
-      --muted: #91a0c3;
-      --brand: #60a5fa;
-      --highlight: #7dd3fc;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: linear-gradient(180deg, #0b1020, #0c1225);
-      color: var(--text);
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.7;
-    }
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 20px; }
-    .nav {
-      border-bottom: 1px solid #1b2749;
-      background: rgba(12, 18, 37, 0.9);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-    }
-    .brand { font-size: 20px; font-weight: 700; }
-    .nav a {
-      color: var(--brand);
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .nav a:hover { background: #111a34; color: var(--highlight); }
-    .card {
-      margin-top: 20px;
-      background: linear-gradient(180deg, #101731, #0e152b);
-      border: 1px solid #1a2446;
-      border-radius: 18px;
-      padding: 24px;
-    }
-    h1 { font-size: 30px; margin-bottom: 8px; }
-    h2 { font-size: 22px; margin-top: 6px; margin-bottom: 8px; }
-    p { color: #d8e2f8; }
-    .tabs {
-      display: flex;
-      gap: 12px;
-      margin: 16px 0 20px;
-      flex-wrap: wrap;
-    }
-    .tab {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      background: #162246;
-      color: #d8e2f8;
-      border: 1px solid #25325c;
-    }
-    .tab.active { background: var(--brand); color: #081126; border-color: var(--brand); }
-    .tab:hover { background: #1d2c56; color: #fff; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="nav">
@@ -84,19 +17,28 @@
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="wrap top-space">
     <section class="card">
       <h1>Search Artifact</h1>
-      <p>This artifact now has a dedicated page separate from Workshop1.</p>
+      <p class="muted">This artifact now has a dedicated page separate from Workshop1.</p>
 
       <div class="tabs">
         <a class="tab" href="workshop1.html">Workshop1</a>
+        <a class="tab" href="workshop2.html">Workshop2</a>
         <a class="tab active" href="search-artifact.html">Search Artifact</a>
       </div>
 
       <h2>Artifact Content</h2>
       <p>Add your search artifact details, screenshots, and explanation here.</p>
+      <ul>
+        <li>Problem statement and research goal</li>
+        <li>Search strategy and evaluation approach</li>
+        <li>Key findings and outcome summary</li>
+      </ul>
     </section>
   </div>
+  <footer>
+    © 2026 Abdul Aziz • AI/ML Portfolio
+  </footer>
 </body>
 </html>
