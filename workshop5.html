@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workshop5 • Abdul Aziz Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">Abdul Aziz</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="workshop.html">Workshops</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap top-space">
+    <section class="card">
+      <h1>Workshop5</h1>
+      <p class="muted">Pre-trained model selection and trade-off analysis infographic artifact.</p>
+
+      <div class="tabs">
+        <a class="tab" href="workshop1.html">Workshop1</a>
+        <a class="tab" href="workshop2.html">Workshop2</a>
+        <a class="tab" href="workshop3.html">Workshop3</a>
+        <a class="tab" href="workshop4.html">Workshop4</a>
+        <a class="tab active" href="workshop5.html">Workshop5</a>
+        <a class="tab" href="search-artifact.html">Search Artifact</a>
+      </div>
+
+      <h2>Title</h2>
+      <p>Pre-Trained Model Selection and Trade-Off Analysis</p>
+      <p>Model Size, Accuracy, Speed, and Explainability in Modern AI Systems</p>
+
+      <img
+        src="workshop5image.png"
+        alt="Model Selection and Trade-Off Analysis infographic"
+        class="artifact-img hero"
+      />
+
+      <h2>Description</h2>
+      <p>
+        The artifact is a clean, presentation-ready infographic that analyzes pre-trained models
+        across three major domains: Natural Language Processing (NLP)/Generative AI, computer
+        vision, and tabular data. It focuses on evaluating trade-offs between model size, accuracy,
+        inference speed, and explainability, which are critical factors for real-world deployment.
+      </p>
+      <p>
+        The infographic is structured into four key sections: model overview across domains,
+        trade-off analysis, decision matrix comparison, and practical recommendations. It highlights
+        widely used models such as GPT-4, BERT, MobileNet, EfficientNet, and XGBoost to show how
+        different architectures balance performance and efficiency.
+      </p>
+
+      <h3>Model Selection in AI Systems</h3>
+      <p>
+        Model selection is a critical step in AI development that involves choosing the most
+        appropriate model based on constraints such as computational resources, latency
+        requirements, and interpretability needs. While large-scale models like GPT-4 provide
+        state-of-the-art performance, they often come with high computational costs and limited
+        transparency.
+      </p>
+      <p>
+        In contrast, models such as MobileNet and XGBoost prioritize efficiency and
+        interpretability, making them suitable for edge deployments and structured data
+        applications. Understanding these trade-offs is essential for building scalable and
+        responsible AI systems.
+      </p>
+
+      <h3>Challenges in Model Selection</h3>
+      <ul>
+        <li><strong>Model Complexity:</strong> Larger models improve accuracy but increase computational cost and latency.</li>
+        <li><strong>Speed vs Performance Trade-Off:</strong> High-performance models may not meet real-time requirements.</li>
+        <li><strong>Explainability Limitations:</strong> Deep learning models often function as black boxes.</li>
+        <li><strong>Deployment Constraints:</strong> Hardware limitations, cost, and energy consumption impact feasibility.</li>
+        <li><strong>Domain-Specific Requirements:</strong> Different domains (NLP, vision, tabular) require different optimization priorities.</li>
+      </ul>
+      <p>
+        These challenges make model selection a multi-objective optimization problem rather than a
+        straightforward decision.
+      </p>
+
+      <h3>Decision Matrix and Performance Comparison</h3>
+      <p>A decision matrix is used to compare models across key criteria:</p>
+      <ul>
+        <li>Model size (parameters, memory usage)</li>
+        <li>Accuracy (benchmark performance)</li>
+        <li>Speed (latency, throughput)</li>
+        <li>Explainability (interpretability and transparency)</li>
+      </ul>
+
+      <h3>Decision Matrix Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Domain</th>
+            <th>Size</th>
+            <th>Accuracy</th>
+            <th>Speed</th>
+            <th>Explainability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GPT-4</td>
+            <td>NLP/GenAI</td>
+            <td>Very Large</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td>BERT</td>
+            <td>NLP</td>
+            <td>Large</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td>MobileNet</td>
+            <td>Vision</td>
+            <td>Small</td>
+            <td>Medium</td>
+            <td>High</td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td>EfficientNet</td>
+            <td>Vision</td>
+            <td>Medium</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td>XGBoost</td>
+            <td>Tabular</td>
+            <td>Small-Medium</td>
+            <td>High</td>
+            <td>High</td>
+            <td>High</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        This matrix highlights how no single model dominates across all dimensions, reinforcing the
+        importance of context-driven decision-making.
+      </p>
+
+      <h3>Trade-Off Insights</h3>
+      <ul>
+        <li><strong>Large Models (GPT-4):</strong> Highest accuracy and reasoning capability, but high cost, slower inference, and low explainability.</li>
+        <li><strong>Balanced Models (BERT, EfficientNet):</strong> Strong performance with moderate efficiency, suitable for production systems with reasonable compute.</li>
+        <li><strong>Lightweight Models (MobileNet):</strong> Optimized for speed and edge deployment, with lower accuracy but high efficiency.</li>
+        <li><strong>Tabular Models (XGBoost):</strong> High interpretability and strong performance, ideal for structured data and regulated environments.</li>
+      </ul>
+
+      <h3>Current Solutions and Optimization Techniques</h3>
+      <ul>
+        <li>Model compression (quantization, pruning)</li>
+        <li>Distillation (smaller models trained from larger ones)</li>
+        <li>Hybrid architectures (combining multiple models)</li>
+        <li>Hardware acceleration (GPUs, TPUs)</li>
+        <li>Explainability tools (SHAP, feature importance for tabular models)</li>
+      </ul>
+      <p>
+        These approaches help balance performance, efficiency, and interpretability in production
+        systems.
+      </p>
+
+      <h2>Resource Components Included</h2>
+      <ul>
+        <li>NLP/Generative AI models: GPT-4, BERT</li>
+        <li>Computer vision models: MobileNet, EfficientNet</li>
+        <li>Tabular models: XGBoost</li>
+        <li>Evaluation criteria: model size, accuracy, speed, explainability</li>
+        <li>Optimization techniques: model compression, distillation, hybrid systems</li>
+        <li>Industry practices in model selection and deployment</li>
+      </ul>
+
+      <h2>Examples of Model Applications</h2>
+      <ul>
+        <li><strong>GPT-4 (OpenAI):</strong> Advanced conversational AI, copilots, and reasoning systems.</li>
+        <li><strong>BERT (Google):</strong> Search ranking, classification, and NLP pipelines.</li>
+        <li><strong>MobileNet (Google):</strong> Mobile vision applications and real-time detection.</li>
+        <li><strong>EfficientNet (Google):</strong> High-accuracy image classification tasks.</li>
+        <li><strong>XGBoost:</strong> Financial modeling, risk scoring, and tabular prediction systems.</li>
+      </ul>
+
+      <h2>Objective</h2>
+      <p>
+        To analyze and compare pre-trained models across domains while demonstrating how trade-offs
+        between size, accuracy, speed, and explainability influence real-world AI system design.
+        The goal is to provide a structured framework that supports informed and practical model
+        selection decisions.
+      </p>
+
+      <h2>Process / Methodology</h2>
+      <ul>
+        <li>Researched widely used pre-trained models across NLP, vision, and tabular domains.</li>
+        <li>Collected data on model size, performance benchmarks, and inference characteristics.</li>
+        <li>Analyzed trade-offs between computational cost and model effectiveness.</li>
+        <li>Developed a decision matrix to compare models across key criteria.</li>
+        <li>Structured findings into a clear, visual infographic format.</li>
+        <li>Focused on clarity, practical relevance, and real-world applicability.</li>
+      </ul>
+
+      <h2>Tools and Technologies Used</h2>
+      <ul>
+        <li>AI-assisted research tools (ChatGPT)</li>
+        <li>Microsoft PowerPoint / Figma / Canva for infographic design</li>
+        <li>Python ecosystem knowledge (for model understanding)</li>
+        <li>Industry research papers and documentation</li>
+        <li>Visualization principles: hierarchy, contrast, structured layout</li>
+      </ul>
+
+      <h2>Value Proposition</h2>
+      <p>
+        This artifact translates complex AI model selection concepts into a structured and visually
+        engaging format. It demonstrates the ability to evaluate models beyond accuracy by
+        incorporating performance, efficiency, and explainability considerations.
+      </p>
+      <p>
+        <strong>Relevance to AI/ML Practice:</strong> Effective model selection is a critical skill
+        for AI engineers. This artifact showcases the ability to balance trade-offs and design
+        systems that are not only accurate but also scalable, efficient, and aligned with
+        real-world constraints.
+      </p>
+
+      <h2>References</h2>
+      <ul>
+        <li>OpenAI documentation on GPT models</li>
+        <li>Google AI research on BERT, MobileNet, and EfficientNet</li>
+        <li>Chen, T., and Guestrin, C. (2016). XGBoost: A scalable tree boosting system</li>
+        <li>Academic literature on model efficiency and deep learning trade-offs</li>
+        <li>Industry resources on AI system design and optimization</li>
+      </ul>
+    </section>
+  </div>
+  <footer>
+    © 2026 Abdul Aziz • AI/ML Portfolio
+  </footer>
+</body>
+</html>
