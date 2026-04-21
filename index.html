@@ -17,66 +17,109 @@
       --brand: #60a5fa;
       --highlight: #7dd3fc;
       --ring: rgba(96,165,250,.35);
+      --line: #1a2446;
     }
+
     * { box-sizing: border-box; margin:0; padding:0; }
+
     html, body {
-      background: linear-gradient(180deg,#0b1020,#0c1225);
+      background: radial-gradient(circle at 10% -10%, #162349 0%, transparent 35%), linear-gradient(180deg,#0b1020,#0c1225);
       color: var(--text);
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.7;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -30% -10%;
+      background: radial-gradient(circle at 20% 20%, rgba(125,211,252,.12), transparent 35%), radial-gradient(circle at 80% 30%, rgba(96,165,250,.08), transparent 32%);
+      filter: blur(30px);
+      animation: floatAura 14s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatAura {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(24px); }
+    }
+
     a { color: var(--brand); text-decoration: none; }
     a:hover { color: var(--highlight); }
-    /* Layout */
-    .wrap { max-width: 1150px; margin: 0 auto; padding: 20px; }
+
+    .wrap { max-width: 1150px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
     .nav {
-      position: sticky; top:0; z-index:50;
-      background: rgba(12,18,37,0.85);
-      backdrop-filter: blur(10px);
+      position: sticky;
+      top:0;
+      z-index:50;
+      background: rgba(12,18,37,0.88);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid #1b2749;
     }
+
     .nav-inner {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
       padding: 12px 6px;
     }
+
     .brand {
-      font-size: 20px; font-weight: 700; letter-spacing: .3px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      color: #dbeafe;
     }
+
+    .nav nav { display: flex; flex-wrap: wrap; gap: 6px; }
+
     .nav a {
       padding: 8px 14px;
       font-weight: 500;
-      transition: background .2s;
+      transition: all .22s ease;
       border-radius: 8px;
+      border: 1px solid transparent;
     }
-    .nav a:hover { background: #111a34; }
+
+    .nav a:hover,
+    .nav a.active {
+      background: #111a34;
+      border-color: #22315f;
+      color: #dbeafe;
+    }
+
     .grid { display:grid; grid-template-columns:280px 1fr; gap:20px; }
     @media(max-width:980px){ .grid { grid-template-columns:1fr; } }
-    /* Cards */
+
     .card {
       background: linear-gradient(180deg,#101731,#0e152b);
-      border: 1px solid #1a2446;
+      border: 1px solid var(--line);
       border-radius: 18px;
       padding: 20px;
       box-shadow: 0 10px 40px rgba(0,0,0,.25);
-      transition: transform .2s;
+      transition: transform .22s ease, border-color .22s ease;
     }
-    .card:hover { transform: translateY(-3px); }
-    /* Hero */
+
+    .card:hover { transform: translateY(-3px); border-color: #284082; }
+
     .hero h1 {
       font-size: 28px;
       font-weight: 700;
       line-height: 1.3;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .hero p {
-      font-size: 15px;
-      color: var(--muted);
-    }
-    .chips {
-      display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;
-    }
+
+    .hero p { font-size: 15px; color: var(--muted); }
+
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+
     .chip {
       font-size:12px;
       padding:6px 10px;
@@ -85,28 +128,171 @@
       background:#0e1734;
       color:#bcd;
     }
+
     .btn {
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:10px 16px;
       margin-top:12px;
       border-radius:10px;
       font-weight:600;
-      background: var(--brand);
+      background: linear-gradient(135deg, var(--brand), #80d7ff);
       color:#081126;
-      transition: background .2s;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .btn:hover { background: var(--highlight); }
-    /* Sections */
-    h2 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      font-weight: 600;
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(96,165,250,.35); color:#081126; }
+
+    h2 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
+
+    .section p, .section li { font-size: 15px; color: #d8e2f8; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
     }
-    .section p, .section li {
-      font-size: 15px;
-      color: #d8e2f8;
+
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
     }
-    ul { padding-left:18px; }
+
+    @media (max-width: 760px) {
+      .skill-grid { grid-template-columns: 1fr; }
+    }
+
+    .skill-item {
+      border: 1px solid #24335f;
+      border-radius: 12px;
+      padding: 12px;
+      background: #0d1733;
+    }
+
+    .skill-item h3 { font-size: 14px; margin-bottom: 8px; color: #d8e7ff; }
+
+    .meter {
+      height: 8px;
+      border-radius: 999px;
+      background: #152344;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .meter > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #66b3ff, #7dd3fc);
+      transition: width 1s ease;
+    }
+
+    .timeline { display: grid; gap: 12px; margin-top: 8px; }
+
+    .timeline-item {
+      border-left: 2px solid #2a437d;
+      padding-left: 14px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .metric {
+      border: 1px solid #2b467f;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #b7cbf7;
+      background: #101d3f;
+    }
+
+    .artifact {
+      margin-top: 12px;
+      border: 1px solid #24335f;
+      border-radius: 14px;
+      padding: 14px;
+      background: #0f1938;
+    }
+
+    .artifact img {
+      width:100%;
+      max-width:800px;
+      margin-top:15px;
+      border-radius:10px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.25);
+      cursor: zoom-in;
+      transition: transform .2s ease;
+    }
+
+    .artifact img:hover { transform: scale(1.01); }
+
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #2c467d;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #d7e6ff;
+      background: #0d1835;
+    }
+
+    .to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      border: 1px solid #365293;
+      background: rgba(18, 31, 66, 0.95);
+      color: #dbeafe;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all .25s ease;
+      z-index: 20;
+    }
+
+    .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(4,8,18,0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 90;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: min(1100px, 95vw);
+      max-height: 90vh;
+      border-radius: 12px;
+      border: 1px solid #29417a;
+    }
+
     footer {
       padding: 30px 12px;
       text-align: center;
@@ -117,7 +303,6 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <div class="nav">
     <div class="wrap nav-inner">
       <div class="brand">Abdul Aziz</div>
@@ -132,11 +317,9 @@
     </div>
   </div>
 
-  <!-- Content -->
   <div class="wrap" style="margin-top:10px">
     <div class="grid">
-      <!-- Sidebar -->
-      <aside class="side">
+      <aside class="side reveal">
         <div class="card hero">
           <h1>Enterprise AI/ML Engineer</h1>
           <p>Designing scalable, explainable, and trustworthy AI systems.</p>
@@ -146,71 +329,85 @@
             <span class="chip">MLOps</span>
             <span class="chip">Graph Analytics</span>
           </div>
-          <div style="display:flex;gap:10px;margin-top:12px">
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
             <a class="btn" href="#contact">Hire Me</a>
-            <a class="btn" href="Abdul.Aziz_Resume (5).pdf" target="_blank">Download Resume</a>
+            <a class="btn" href="Abdul.Aziz_Resume (5).pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
           </div>
         </div>
       </aside>
 
-      <!-- Main -->
       <main style="display:flex;flex-direction:column;gap:20px">
-        <section id="about" class="card section">
+        <section id="about" class="card section reveal">
           <h2>👤 About Me</h2>
-          <p>I'm Abdul Aziz, a Senior AI/ML Engineer at Northern Trust. With 4+ years of experience, I design and deploy enterprise-grade solutions, from multi-agent GenAI pipelines to large-scale RAG systems and real-time observability frameworks.</p>
+          <p>I'm Abdul Aziz, an AI/ML Engineer at Northern Trust. With 4+ years of experience, I design and deploy enterprise-grade solutions, from multi-agent GenAI pipelines to large-scale RAG systems and real-time observability frameworks.</p>
           <p>My mission is to bridge <strong>cutting-edge AI innovation</strong> with <strong>reliable, explainable systems</strong> that deliver measurable business impact.</p>
         </section>
 
-        <section id="skills" class="card section">
-          <h2>🛠 Core Skillsmdnkd</h2>
-          <p><strong>AI/ML & NLP:</strong> PyTorch, TensorFlow, HuggingFace, DSPy, LangChain, LlamaIndex</p>
-          <p><strong>Cloud & Data:</strong> Azure, AWS, Databricks, Spark, Neo4j, MLflow, AKS</p>
-          <p><strong>MLOps & Automation:</strong> Argo, GitHub Actions, Docker, Kubernetes, Terraform</p>
-          <p><strong>Programming:</strong> Python, SQL, R, Bash, Java</p>
+        <section id="skills" class="card section reveal">
+          <h2>🛠 Core Skills</h2>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <h3>AI/ML & NLP — PyTorch, TensorFlow, HuggingFace, DSPy</h3>
+              <div class="meter"><span data-level="95"></span></div>
+            </div>
+            <div class="skill-item">
+              <h3>Cloud & Data — Azure, AWS, Databricks, Spark, Neo4j</h3>
+              <div class="meter"><span data-level="92"></span></div>
+            </div>
+            <div class="skill-item">
+              <h3>MLOps & Automation — Argo, GitHub Actions, Docker, Kubernetes</h3>
+              <div class="meter"><span data-level="90"></span></div>
+            </div>
+            <div class="skill-item">
+              <h3>Programming — Python, SQL, R, Bash, Java</h3>
+              <div class="meter"><span data-level="94"></span></div>
+            </div>
+          </div>
         </section>
 
-        <section id="experience" class="card section">
+        <section id="experience" class="card section reveal">
           <h2>💼 Experience Highlights</h2>
-          <ul>
-            <li><strong>Senior Analyst, Software/AI Engineer — Northern Trust</strong>  
-              - Built RAG & GenAI pipelines improving accuracy by 30% and scaling to 1M+ API calls/month.  
-              - Designed compliant LLMOps pipelines with Azure & Argo for enterprise workloads.  
-              - Enabled real-time observability with Arize Phoenix, reducing response cycles by 35%.</li>
-            <li><strong>Associate Software Engineer — Northern Trust</strong>  
-              - Delivered GPT-powered automation for reporting, boosting analyst productivity by 25%.  
-              - Migrated legacy systems to Databricks and Spark for scalable analytics.  
-              - Built graph-based recommendation engine, improving client acquisition efficiency by 15%.</li>
-          </ul>
+          <div class="timeline">
+            <div class="timeline-item">
+              <p><strong>Senior Analyst, Software/AI Engineer — Northern Trust</strong></p>
+              <p>Built RAG & GenAI pipelines improving accuracy by 30% and scaling to 1M+ API calls/month. Designed compliant LLMOps pipelines with Azure & Argo for enterprise workloads. Enabled real-time observability with Arize Phoenix, reducing response cycles by 35%.</p>
+              <div class="metrics">
+                <span class="metric">+30% Accuracy</span>
+                <span class="metric">1M+ API Calls/Month</span>
+                <span class="metric">-35% Response Cycle Time</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <p><strong>Associate Software Engineer — Northern Trust</strong></p>
+              <p>Delivered GPT-powered automation for reporting, boosting analyst productivity by 25%. Migrated legacy systems to Databricks and Spark for scalable analytics. Built graph-based recommendation engine, improving client acquisition efficiency by 15%.</p>
+              <div class="metrics">
+                <span class="metric">+25% Analyst Productivity</span>
+                <span class="metric">+15% Acquisition Efficiency</span>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section id="projects" class="card section">
-  <h2>📁 Featured Artifacts</h2>
-  <p>Explore curated artifacts that showcase my technical expertise, research, and applied innovation in AI/ML and data engineering.</p>
+        <section id="projects" class="card section reveal">
+          <h2>📁 Featured Artifacts</h2>
+          <p>Explore curated artifacts that showcase my technical expertise, research, and applied innovation in AI/ML and data engineering.</p>
 
-  <!-- Artifact 1 -->
-  <div class="artifact">
-    <h3>Artifact 1: Machine Learning Algorithms Infographic Portfolio Artifact</h3>
-    
-    <img 
-      src="ChatGPT Image Mar 12, 2026, 05_36_57 PM.png" 
-      alt="Machine Learning Algorithms Infographic"
-      style="width:100%; max-width:800px; margin-top:15px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15);"
-    >
+          <div class="artifact">
+            <h3>Artifact 1: Machine Learning Algorithms Infographic Portfolio Artifact</h3>
+            <img id="artifactImage" src="ChatGPT Image Mar 12, 2026, 05_36_57 PM.png" alt="Machine Learning Algorithms Infographic" />
+            <p style="margin-top:10px;">
+              This infographic presents a visual framework of major machine learning algorithms,
+              categorizing them into supervised and unsupervised learning while highlighting
+              their application domains such as tabular data, computer vision, NLP, and generative AI.
+              The artifact demonstrates conceptual understanding of algorithm relationships,
+              practical use cases, and real-world AI applications.
+            </p>
+          </div>
+        </section>
 
-    <p style="margin-top:10px;">
-      This infographic presents a visual framework of major machine learning algorithms,
-      categorizing them into supervised and unsupervised learning while highlighting
-      their application domains such as tabular data, computer vision, NLP, and generative AI.
-      The artifact demonstrates conceptual understanding of algorithm relationships,
-      practical use cases, and real-world AI applications.
-    </p>
-  </div>
-
-</section>
-
-        <section id="certs" class="card section">
+        <section id="certs" class="card section reveal">
           <h2>📜 Certifications</h2>
-          <ul>
+          <ul style="padding-left:18px;">
             <li>Azure Generative AI Engineer Associate</li>
             <li>Azure Data Scientist Associate</li>
             <li>Neo4j Certified: Graph Data Science</li>
@@ -218,19 +415,94 @@
           </ul>
         </section>
 
-        <section id="contact" class="card section">
+        <section id="contact" class="card section reveal">
           <h2>🔗 Contact</h2>
-          <p>📍 Chicago, IL<br>
-             📧 <a href="mailto:aziz16034@gmail.com">aziz16034@gmail.com</a><br>
-             🔗 <a href="https://www.linkedin.com/in/aziz16034" target="_blank">LinkedIn Profile</a></p>
+          <p>📍 Chicago, IL</p>
+          <div class="contact-links">
+            <a class="contact-pill" href="mailto:aziz16034@gmail.com">📧 aziz16034@gmail.com</a>
+            <a class="contact-pill" href="https://www.linkedin.com/in/aziz16034" target="_blank" rel="noopener noreferrer">🔗 LinkedIn Profile</a>
+          </div>
         </section>
       </main>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
-    © 2025 Abdul Aziz • Professional AI/ML Engineer Portfolio
+    © 2026 Abdul Aziz • Professional AI/ML Engineer Portfolio
   </footer>
+
+  <button class="to-top" id="toTopBtn" aria-label="Back to top">↑ Top</button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img src="ChatGPT Image Mar 12, 2026, 05_36_57 PM.png" alt="Expanded machine learning infographic" />
+  </div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+
+          const meters = entry.target.querySelectorAll('.meter > span[data-level]');
+          meters.forEach(bar => {
+            if (!bar.dataset.animated) {
+              bar.style.width = `${bar.dataset.level}%`;
+              bar.dataset.animated = 'true';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav nav a');
+    const linkById = Object.fromEntries([...navLinks].map(a => [a.getAttribute('href').slice(1), a]));
+
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = linkById[entry.target.id];
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    const toTopBtn = document.getElementById('toTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        toTopBtn.classList.add('show');
+      } else {
+        toTopBtn.classList.remove('show');
+      }
+    });
+
+    toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const artifactImg = document.getElementById('artifactImage');
+    const lightbox = document.getElementById('lightbox');
+
+    artifactImg.addEventListener('click', () => {
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
 </body>
 </html>
