@@ -344,6 +344,77 @@ ul {
   color: var(--muted);
 }
 
+.workshop5-page .card {
+  padding: clamp(18px, 2.2vw, 30px);
+}
+
+.workshop5-page h2 {
+  margin-top: 26px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(122, 176, 255, 0.2);
+}
+
+.workshop5-page h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  color: #ecf4ff;
+}
+
+.workshop5-page p + p {
+  margin-top: 8px;
+}
+
+.workshop5-page ul {
+  margin-top: 8px;
+}
+
+.workshop5-page li + li {
+  margin-top: 8px;
+}
+
+.workshop5-chips {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.workshop5-hero {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(122, 176, 255, 0.24);
+  background: linear-gradient(180deg, rgba(122, 176, 255, 0.12), rgba(122, 176, 255, 0.05));
+}
+
+.workshop5-page .table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+  border: 1px solid rgba(122, 176, 255, 0.24);
+  border-radius: 12px;
+  background: rgba(122, 176, 255, 0.06);
+}
+
+.workshop5-page table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.workshop5-page th,
+.workshop5-page td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(122, 176, 255, 0.16);
+}
+
+.workshop5-page th {
+  color: #eef4ff;
+  font-weight: 650;
+  background: rgba(122, 176, 255, 0.14);
+}
+
+.workshop5-page tr:last-child td {
+  border-bottom: none;
+}
+
 footer {
   padding: 34px 12px 24px;
   text-align: center;
