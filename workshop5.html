@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<meta name="description" content="Abdul Aziz — AI/ML Engineer specializing in Generative AI, RAG systems, and MLOps. Building enterprise-ready AI solutions with measurable business impact." />
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,7 +6,7 @@
   <title>Workshop5 • Abdul Aziz Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="workshop5-page">
   <div class="nav">
     <div class="wrap nav-inner">
       <div class="brand">Abdul Aziz</div>
@@ -23,6 +21,12 @@
     <section class="card">
       <h1>Workshop5</h1>
       <p class="muted">Pre-trained model selection and trade-off analysis infographic artifact.</p>
+      <div class="chips workshop5-chips">
+        <span class="chip">NLP / GenAI</span>
+        <span class="chip">Computer Vision</span>
+        <span class="chip">Tabular AI</span>
+        <span class="chip">Deployment Trade-Offs</span>
+      </div>
 
       <div class="tabs">
         <a class="tab" href="workshop1.html">Workshop1</a>
@@ -34,14 +38,16 @@
       </div>
 
       <h2>Title</h2>
-      <p>Pre-Trained Model Selection and Trade-Off Analysis</p>
-      <p>Model Size, Accuracy, Speed, and Explainability in Modern AI Systems</p>
+      <div class="workshop5-hero">
+        <p>Pre-Trained Model Selection and Trade-Off Analysis</p>
+        <p>Model Size, Accuracy, Speed, and Explainability in Modern AI Systems</p>
 
-      <img
-        src="workshop5image.png"
-        alt="Model Selection and Trade-Off Analysis infographic"
-        class="artifact-img hero"
-      />
+        <img
+          src="workshop5image.png"
+          alt="Model Selection and Trade-Off Analysis infographic"
+          class="artifact-img hero"
+        />
+      </div>
 
       <h2>Description</h2>
       <p>
@@ -95,60 +101,62 @@
       </ul>
 
       <h3>Decision Matrix Summary</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Model</th>
-            <th>Domain</th>
-            <th>Size</th>
-            <th>Accuracy</th>
-            <th>Speed</th>
-            <th>Explainability</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>GPT-4</td>
-            <td>NLP/GenAI</td>
-            <td>Very Large</td>
-            <td>High</td>
-            <td>Low</td>
-            <td>Low</td>
-          </tr>
-          <tr>
-            <td>BERT</td>
-            <td>NLP</td>
-            <td>Large</td>
-            <td>High</td>
-            <td>Medium</td>
-            <td>Medium</td>
-          </tr>
-          <tr>
-            <td>MobileNet</td>
-            <td>Vision</td>
-            <td>Small</td>
-            <td>Medium</td>
-            <td>High</td>
-            <td>Medium</td>
-          </tr>
-          <tr>
-            <td>EfficientNet</td>
-            <td>Vision</td>
-            <td>Medium</td>
-            <td>High</td>
-            <td>Medium</td>
-            <td>Low</td>
-          </tr>
-          <tr>
-            <td>XGBoost</td>
-            <td>Tabular</td>
-            <td>Small-Medium</td>
-            <td>High</td>
-            <td>High</td>
-            <td>High</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Domain</th>
+              <th>Size</th>
+              <th>Accuracy</th>
+              <th>Speed</th>
+              <th>Explainability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-4</td>
+              <td>NLP/GenAI</td>
+              <td>Very Large</td>
+              <td>High</td>
+              <td>Low</td>
+              <td>Low</td>
+            </tr>
+            <tr>
+              <td>BERT</td>
+              <td>NLP</td>
+              <td>Large</td>
+              <td>High</td>
+              <td>Medium</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>MobileNet</td>
+              <td>Vision</td>
+              <td>Small</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>EfficientNet</td>
+              <td>Vision</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Medium</td>
+              <td>Low</td>
+            </tr>
+            <tr>
+              <td>XGBoost</td>
+              <td>Tabular</td>
+              <td>Small-Medium</td>
+              <td>High</td>
+              <td>High</td>
+              <td>High</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p>
         This matrix highlights how no single model dominates across all dimensions, reinforcing the
         importance of context-driven decision-making.
