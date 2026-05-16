@@ -28,11 +28,10 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # Static site source root
-          app_artifact_location: "." # Publish repository root as built artifact
+          app_location: "/" # Static site root
           api_location: "" # Leave empty if no API
           output_location: "" # No separate build output folder
-          skip_app_build: true # Skip Oryx for plain HTML/CSS/JS site
+          skip_app_build: true # Upload static files directly, skip Oryx detection/build
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
